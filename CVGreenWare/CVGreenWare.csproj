@@ -51,6 +51,14 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Cashier.cs" />
+    <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\Medicine.cs" />
+    <Compile Include="Model\Perscription.cs" />
+    <Compile Include="Model\Pharmacist.cs" />
+    <Compile Include="Model\Pharmacy.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\Warehouse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -77,6 +85,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database%28Simulated%29\PharmacyInventory-CSV.txt" />
+    <Content Include="Database%28Simulated%29\Uers-CSV.txt" />
+    <Content Include="Database%28Simulated%29\WarehouseInventory-CSV.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
