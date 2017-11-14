@@ -42,13 +42,19 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.logError = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.passwordBox = new System.Windows.Forms.MaskedTextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.userNameBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.logError = new System.Windows.Forms.TextBox();
+            this.OpenFile = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textFileName = new System.Windows.Forms.TextBox();
+            this.ButtonReadExcel = new System.Windows.Forms.Button();
+            this.dsInventory = new System.Data.DataSet();
+            this.dgInventory = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -57,6 +63,8 @@
             this.tabPage5.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dsInventory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgInventory)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -96,6 +104,11 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.dgInventory);
+            this.tabPage2.Controls.Add(this.ButtonReadExcel);
+            this.tabPage2.Controls.Add(this.textFileName);
+            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.OpenFile);
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -108,7 +121,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(693, 185);
+            this.label2.Location = new System.Drawing.Point(205, 50);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 13);
             this.label2.TabIndex = 1;
@@ -204,6 +217,20 @@
             this.tabPage7.Text = "User Login";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // logError
+            // 
+            this.logError.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.logError.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.logError.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.logError.ForeColor = System.Drawing.Color.Transparent;
+            this.logError.Location = new System.Drawing.Point(419, 295);
+            this.logError.Name = "logError";
+            this.logError.ReadOnly = true;
+            this.logError.Size = new System.Drawing.Size(241, 13);
+            this.logError.TabIndex = 8;
+            this.logError.Text = "Incorrect Username or Password please try again";
+            this.logError.Visible = false;
+            // 
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -249,6 +276,7 @@
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 2;
             this.textBox2.Text = "User Name";
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // userNameBox
             // 
@@ -264,19 +292,51 @@
             this.label7.Size = new System.Drawing.Size(100, 23);
             this.label7.TabIndex = 0;
             // 
-            // logError
+            // OpenFile
             // 
-            this.logError.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.logError.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.logError.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.logError.ForeColor = System.Drawing.Color.Transparent;
-            this.logError.Location = new System.Drawing.Point(419, 295);
-            this.logError.Name = "logError";
-            this.logError.ReadOnly = true;
-            this.logError.Size = new System.Drawing.Size(241, 13);
-            this.logError.TabIndex = 8;
-            this.logError.Text = "Incorrect Username or Password please try again";
-            this.logError.Visible = false;
+            this.OpenFile.Location = new System.Drawing.Point(119, 103);
+            this.OpenFile.Name = "OpenFile";
+            this.OpenFile.Size = new System.Drawing.Size(104, 23);
+            this.OpenFile.TabIndex = 2;
+            this.OpenFile.Text = "Open File";
+            this.OpenFile.UseVisualStyleBackColor = true;
+            this.OpenFile.Click += new System.EventHandler(this.OpenFile_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(258, 105);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 3;
+            // 
+            // textFileName
+            // 
+            this.textFileName.Location = new System.Drawing.Point(119, 154);
+            this.textFileName.Name = "textFileName";
+            this.textFileName.Size = new System.Drawing.Size(239, 20);
+            this.textFileName.TabIndex = 4;
+            // 
+            // ButtonReadExcel
+            // 
+            this.ButtonReadExcel.Location = new System.Drawing.Point(119, 209);
+            this.ButtonReadExcel.Name = "ButtonReadExcel";
+            this.ButtonReadExcel.Size = new System.Drawing.Size(239, 23);
+            this.ButtonReadExcel.TabIndex = 5;
+            this.ButtonReadExcel.Text = "Read Excel Sheet";
+            this.ButtonReadExcel.UseVisualStyleBackColor = true;
+            this.ButtonReadExcel.Click += new System.EventHandler(this.ButtonReadExcel_Click);
+            // 
+            // dsInventory
+            // 
+            this.dsInventory.DataSetName = "NewDataSet";
+            // 
+            // dgInventory
+            // 
+            this.dgInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgInventory.Location = new System.Drawing.Point(443, 103);
+            this.dgInventory.Name = "dgInventory";
+            this.dgInventory.Size = new System.Drawing.Size(373, 129);
+            this.dgInventory.TabIndex = 6;
             // 
             // Form1
             // 
@@ -300,6 +360,8 @@
             this.tabPage6.ResumeLayout(false);
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dsInventory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgInventory)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -327,6 +389,12 @@
         private System.Windows.Forms.MaskedTextBox passwordBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox logError;
+        private System.Windows.Forms.Button OpenFile;
+        private System.Windows.Forms.TextBox textFileName;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button ButtonReadExcel;
+        private System.Data.DataSet dsInventory;
+        private System.Windows.Forms.DataGridView dgInventory;
     }
 }
 
