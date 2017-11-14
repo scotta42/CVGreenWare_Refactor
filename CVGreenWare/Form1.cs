@@ -86,5 +86,43 @@ namespace CVGreenWare
             dgInventory.DataSource = dsInventory.Tables[0];
 
         }
+
+        private void tblInventoryBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.tblInventoryBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.warehouseDatabaseDataSet);
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'warehouseDatabaseDataSet.tblInventory' table. You can move, or remove it, as needed.
+            this.tblInventoryTableAdapter.Fill(this.warehouseDatabaseDataSet.tblInventory);
+
+        }
+
+        private void buttonExport_Click(object sender, EventArgs e)
+        {
+            // read one row at a time and store in r
+            foreach (DataRow r in dsInventory.Tables[0].Rows)
+            {
+                DataRow dr = warehouseDatabaseDataSet.tblInventory.NewRow();
+                // all collums copied to dr
+                dr[0] = r[0];
+                dr[1] = r[1];
+                dr[2] = r[2];
+
+                warehouseDatabaseDataSet.tblInventory.Rows.Add(dr);
+            }
+
+            //update database to source 
+            tblInventoryTableAdapter.Update(warehouseDatabaseDataSet);
+        }
+
+        // can update in read window up top and store in database 
+// WAREHOUSE TAB ----------------------------------------------------------------
+
+
     }
 }
