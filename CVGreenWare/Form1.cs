@@ -126,6 +126,7 @@ namespace CVGreenWare
         {
             Inventory_Form invetory = new Inventory_Form();
             invetory.Show();
+            // test
         }
 
 
