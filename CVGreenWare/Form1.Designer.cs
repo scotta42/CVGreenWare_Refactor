@@ -34,6 +34,14 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.buttonExport = new System.Windows.Forms.Button();
             this.tblInventoryDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,14 +87,7 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tblInventoryBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.buttonInventory = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -142,6 +143,7 @@
             // tabPage2
             // 
             this.tabPage2.AutoScroll = true;
+            this.tabPage2.Controls.Add(this.buttonInventory);
             this.tabPage2.Controls.Add(this.label15);
             this.tabPage2.Controls.Add(this.label14);
             this.tabPage2.Controls.Add(this.label13);
@@ -165,6 +167,78 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Warehouse";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(750, 16);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(264, 13);
+            this.label15.TabIndex = 15;
+            this.label15.Text = "Edit any errors in within Window A before hitting Export";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(695, 440);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(389, 13);
+            this.label14.TabIndex = 14;
+            this.label14.Text = "for project purpose only stored in \'bin > debug > WarehouseDatabase\' temporarily";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(726, 193);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(276, 13);
+            this.label13.TabIndex = 13;
+            this.label13.Text = "When all Excel data is gathered click Export to Database";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(695, 241);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(56, 13);
+            this.label12.TabIndex = 12;
+            this.label12.Text = "Window B";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(695, 39);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(56, 13);
+            this.label11.TabIndex = 11;
+            this.label11.Text = "Window A";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(171, 171);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(284, 13);
+            this.label10.TabIndex = 10;
+            this.label10.Text = "Read Excel Sheet again until all files imported in window A.";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(171, 152);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(289, 13);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "after clicking Read Excel Sheet open the new file and click ";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(171, 133);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(276, 13);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "Click Read Excel Sheet to read file. If more than one file, ";
             // 
             // buttonExport
             // 
@@ -572,77 +646,16 @@
             this.tblInventoryBindingNavigatorSaveItem.Text = "Save Data";
             this.tblInventoryBindingNavigatorSaveItem.Click += new System.EventHandler(this.tblInventoryBindingNavigatorSaveItem_Click);
             // 
-            // label8
+            // buttonInventory
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(171, 133);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(276, 13);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "Click Read Excel Sheet to read file. If more than one file, ";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(171, 152);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(289, 13);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "after clicking Read Excel Sheet open the new file and click ";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(171, 171);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(284, 13);
-            this.label10.TabIndex = 10;
-            this.label10.Text = "Read Excel Sheet again until all files imported in window A.";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(695, 39);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(56, 13);
-            this.label11.TabIndex = 11;
-            this.label11.Text = "Window A";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(695, 241);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(56, 13);
-            this.label12.TabIndex = 12;
-            this.label12.Text = "Window B";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(726, 193);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(276, 13);
-            this.label13.TabIndex = 13;
-            this.label13.Text = "When all Excel data is gathered click Export to Database";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(695, 440);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(389, 13);
-            this.label14.TabIndex = 14;
-            this.label14.Text = "for project purpose only stored in \'bin > debug > WarehouseDatabase\' temporarily";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(750, 16);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(264, 13);
-            this.label15.TabIndex = 15;
-            this.label15.Text = "Edit any errors in within Window A before hitting Export";
+            this.buttonInventory.BackColor = System.Drawing.Color.Cyan;
+            this.buttonInventory.Location = new System.Drawing.Point(179, 367);
+            this.buttonInventory.Name = "buttonInventory";
+            this.buttonInventory.Size = new System.Drawing.Size(239, 70);
+            this.buttonInventory.TabIndex = 16;
+            this.buttonInventory.Text = "View Current Inventory";
+            this.buttonInventory.UseVisualStyleBackColor = false;
+            this.buttonInventory.Click += new System.EventHandler(this.buttonInventory_Click);
             // 
             // Form1
             // 
@@ -740,6 +753,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button buttonInventory;
     }
 }
 

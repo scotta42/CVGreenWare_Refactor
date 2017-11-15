@@ -80,6 +80,8 @@ namespace CVGreenWare
             OleDbDataAdapter da = new OleDbDataAdapter("select * from [Sheet1$]", con);
             // when run all data from file will be loadedt to application
             da.Fill(dsInventory);
+
+            // might need https://www.microsoft.com/en-in/download/details.aspx?id=13255 if ACE error
             // display data using messagebox
             // 0 first table of data
             //           MessageBox.Show(dsContacts.Tables[0].Rows.Count.ToString());
@@ -120,8 +122,16 @@ namespace CVGreenWare
             tblInventoryTableAdapter.Update(warehouseDatabaseDataSet);
         }
 
+        private void buttonInventory_Click(object sender, EventArgs e)
+        {
+            Inventory_Form invetory = new Inventory_Form();
+            invetory.Show();
+        }
+
+
+
         // can update in read window up top and store in database 
-// WAREHOUSE TAB ----------------------------------------------------------------
+        // WAREHOUSE TAB ----------------------------------------------------------------
 
 
     }
