@@ -16,5 +16,18 @@ namespace CVGreenWare
         {
             InitializeComponent();
         }
+
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            AttemptLogin();
+        }
+
+        private void AttemptLogin()
+        {
+            //test data
+            Form1 program = new Form1();
+            program.Show();
+            this.Hide();
+        }
     }
 }
