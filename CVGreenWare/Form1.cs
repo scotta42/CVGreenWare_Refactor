@@ -21,10 +21,19 @@ namespace CVGreenWare
         }
 
         #region Pharmacy
+        /// <summary>
+        /// This region is for Pharmacist and Administrator users to access local pharmacy functionallity
+        /// such as viewing Inventory and ordering medicines fro the local inventory
+        /// </summary>
 
         #endregion
 
         #region Warehouse
+        /// <summary>
+        /// This region is for Pharmacist and Administrator users to access warehouse functionallity
+        /// such as viewing Inventory and ordering medicines from the warehouse
+        /// </summary>
+
         // allow to open a file from directory chosen
         OpenFileDialog ofd = new OpenFileDialog();
 
@@ -73,6 +82,8 @@ namespace CVGreenWare
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'warehouseDatabaseDataSet1.tblCustomer' table. You can move, or remove it, as needed.
+            this.tblCustomerTableAdapter.Fill(this.warehouseDatabaseDataSet1.tblCustomer);
             // TODO: This line of code loads data into the 'warehouseDatabaseDataSet.tblInventory' table. You can move, or remove it, as needed.
             this.tblInventoryTableAdapter.Fill(this.warehouseDatabaseDataSet.tblInventory);
 
@@ -111,10 +122,16 @@ namespace CVGreenWare
         #endregion
 
         #region Prescription
-
+        /// <summary>
+        /// This region is for Pharmacist users for accessing prescription functionallity
+        /// </summary>
+        
         #endregion
 
         #region Point Of Sale
+        /// <summary>
+        /// This region is for Point of Sale functionality to be accessed by the Administrator users.
+        /// </summary>
 
         #endregion
 
@@ -123,6 +140,11 @@ namespace CVGreenWare
         #endregion
 
         #region Client Use
+        /// <summary>
+        /// This region is for the Client type user. It will allow customers to create Patient Records to store
+        /// in the system database.
+        /// </summary>
+
         private void button3_Click(object sender, EventArgs e)
         {
             CreatePatientRecord();
@@ -130,12 +152,15 @@ namespace CVGreenWare
 
         private void CreatePatientRecord()
         {
+            // Gather info from form
             string fileName = @"C:\Users\bucha\CVGreenWare\CVGreenWare\WarehouseDatabase.accdb";
             string name = ClientFName.Text + " " + ClientLName.Text;
             string email = ClientEmail.Text;
             int age = Int32.Parse(ClientAge.Text);
             string insurance = ClientInsurance.Text;
+            // TODO: Method to scrub input so DB corruption doesn't occur
 
+            // Open connection to DB and save customer info
             using (OleDbConnection con = new OleDbConnection())
             {
                 DataSet ds = new DataSet();
@@ -145,10 +170,8 @@ namespace CVGreenWare
 
                 ds.Tables["tblCustomers"].Rows.Add(name, age, insurance, DateTime.Today, email);
                 da.Update(ds, "tblCustomers");
-
             }
         }
-
         #endregion
 
         #region User Login
@@ -181,6 +204,11 @@ namespace CVGreenWare
         #endregion
 
         #region HardCode
+        /// <summary>
+        /// This region will simulate functionality that will happen automatically through the system
+        /// such as daily updates. For now, functionallity will occur by Button click events.
+        /// </summary> 
+
         private void button2_Click(object sender, EventArgs e)
         {
             string brianHome = @"C:\Users\bucha\CVGreenWare\CVGreenWare\Excel Docs\Patient.xlsx";
