@@ -30,13 +30,14 @@ namespace CVGreenWare
         //Setting up the Login button
         //
         //using userNameBox for the username textbox and passwordBox for the Password textbox
-  
+
         private void button1_Click(object sender, EventArgs e)
         {
-            if ((userNameBox.Text == "Anthony")&&(passwordBox.Text == "Pinapple31!!"))
+            if ((userNameBox.Text == "Anthony") && (passwordBox.Text == "Pinapple31!!"))
             {
                 MessageBox.Show("Welcome Back Anthony");
-            }else
+            }
+            else
             {
                 logError.Visible = true;
             }
@@ -48,9 +49,7 @@ namespace CVGreenWare
         }
 
 
- //WAREHOUSE TAB -----------------------------------------------------------------
-
-
+        #region Warehouse
         // allow to open a file from directory chosen
         OpenFileDialog ofd = new OpenFileDialog();
 
@@ -131,9 +130,61 @@ namespace CVGreenWare
 
 
 
+
         // can update in read window up top and store in database 
-        // WAREHOUSE TAB ----------------------------------------------------------------
+
+        #endregion
+
+        #region HardCode
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string brianHome = @"C:\Users\bucha\CVGreenWare\CVGreenWare\Excel Docs\Patient.xlsx";
+            GetFromExcel(brianHome);
+        }
+
+        private void GetFromExcel(string fileName)
+        {
+            //OleDbConnection MyConnection;
+            //DataSet DtSet;
+            //OleDbDataAdapter MyCommand;
+            //MyConnection = new OleDbConnection(string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0; Data Source ={0};Extended Properties=Excel 12.0;", fileName));
+            //MyCommand = new OleDbDataAdapter("select * from [Sheet1$]", MyConnection);
+            //MyCommand.TableMappings.Add("Table", "warehouseDatabaseDataSet.tblCustomer");
+            //DtSet = new DataSet();
+            //MyCommand.Fill(DtSet);
+            ////Console.Write(DtSet.Tables.Count.ToString());
+            ////warehouseDatabaseDataSet.tblCustomer.Rows.Add(DtSet.Tables[0]);
+            //MyConnection.Close();
 
 
+            //using (OleDbConnection con = new OleDbConnection(string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0; Data Source ={0};Extended Properties=Excel 12.0;", fileName)))
+            //{
+            //    DataTable DT = new DataTable();
+            //    string query = string.Format("select * from [Sheet1$]");
+            //    con.Open();
+            //    OleDbDataAdapter adapter = new OleDbDataAdapter(query, con);
+            //    adapter.Fill(DT);
+            //    foreach (DataRow dr in DT.Rows)
+            //    {
+            //        warehouseDatabaseDataSet.tblCustomer.Rows.Add(dr);
+            //    }
+
+            //}
+
+            using (OleDbConnection con = new OleDbConnection(string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0; Data Source ={0};Extended Properties=Excel 12.0;", fileName)))
+            {
+                DataTable DT = new DataTable();
+                string query = string.Format("select * from [Sheet1$]");
+                con.Open();
+                OleDbDataAdapter adapter = new OleDbDataAdapter(query, con);
+                adapter.Fill(DT);
+                foreach (DataRow dr in DT.Rows)
+                {
+                    warehouseDatabaseDataSet.tblCustomer.Rows.Add(dr);
+                }
+
+            }
+        }
+        #endregion
     }
 }

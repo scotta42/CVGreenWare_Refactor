@@ -34,6 +34,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.buttonInventory = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -87,7 +88,8 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tblInventoryBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.buttonInventory = new System.Windows.Forms.Button();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -103,6 +105,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dsInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblInventoryBindingNavigator)).BeginInit();
             this.tblInventoryBindingNavigator.SuspendLayout();
+            this.tabPage8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -114,6 +117,7 @@
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage7);
+            this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Location = new System.Drawing.Point(12, 92);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -167,6 +171,17 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Warehouse";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // buttonInventory
+            // 
+            this.buttonInventory.BackColor = System.Drawing.Color.Cyan;
+            this.buttonInventory.Location = new System.Drawing.Point(179, 367);
+            this.buttonInventory.Name = "buttonInventory";
+            this.buttonInventory.Size = new System.Drawing.Size(239, 70);
+            this.buttonInventory.TabIndex = 16;
+            this.buttonInventory.Text = "View Current Inventory";
+            this.buttonInventory.UseVisualStyleBackColor = false;
+            this.buttonInventory.Click += new System.EventHandler(this.buttonInventory_Click);
             // 
             // label15
             // 
@@ -646,16 +661,25 @@
             this.tblInventoryBindingNavigatorSaveItem.Text = "Save Data";
             this.tblInventoryBindingNavigatorSaveItem.Click += new System.EventHandler(this.tblInventoryBindingNavigatorSaveItem_Click);
             // 
-            // buttonInventory
+            // tabPage8
             // 
-            this.buttonInventory.BackColor = System.Drawing.Color.Cyan;
-            this.buttonInventory.Location = new System.Drawing.Point(179, 367);
-            this.buttonInventory.Name = "buttonInventory";
-            this.buttonInventory.Size = new System.Drawing.Size(239, 70);
-            this.buttonInventory.TabIndex = 16;
-            this.buttonInventory.Text = "View Current Inventory";
-            this.buttonInventory.UseVisualStyleBackColor = false;
-            this.buttonInventory.Click += new System.EventHandler(this.buttonInventory_Click);
+            this.tabPage8.Controls.Add(this.button2);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Size = new System.Drawing.Size(1108, 483);
+            this.tabPage8.TabIndex = 5;
+            this.tabPage8.Text = "Hard Code";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(14, 14);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(148, 23);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "Check For New Patients";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
@@ -689,6 +713,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblInventoryBindingNavigator)).EndInit();
             this.tblInventoryBindingNavigator.ResumeLayout(false);
             this.tblInventoryBindingNavigator.PerformLayout();
+            this.tabPage8.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -754,6 +779,8 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button buttonInventory;
+        private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.Button button2;
     }
 }
 
