@@ -20,34 +20,9 @@ namespace CVGreenWare
             InitializeComponent();
         }
 
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
+        #region Pharmacy
 
-        }
-
-
-
-        //Setting up the Login button
-        //
-        //using userNameBox for the username textbox and passwordBox for the Password textbox
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if ((userNameBox.Text == "Anthony") && (passwordBox.Text == "Pinapple31!!"))
-            {
-                MessageBox.Show("Welcome Back Anthony");
-            }
-            else
-            {
-                logError.Visible = true;
-            }
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        #endregion
 
         #region Warehouse
         // allow to open a file from directory chosen
@@ -132,6 +107,51 @@ namespace CVGreenWare
 
 
         // can update in read window up top and store in database 
+
+        #endregion
+
+        #region Prescription
+
+        #endregion
+
+        #region Point Of Sale
+
+        #endregion
+
+        #region Patient Record
+
+        #endregion
+
+        #region Client Use
+
+        #endregion
+
+        #region User Login
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //Setting up the Login button
+        //
+        //using userNameBox for the username textbox and passwordBox for the Password textbox
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if ((userNameBox.Text == "Anthony") && (passwordBox.Text == "Pinapple31!!"))
+            {
+                MessageBox.Show("Welcome Back Anthony");
+            }
+            else
+            {
+                logError.Visible = true;
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
 
         #endregion
 
