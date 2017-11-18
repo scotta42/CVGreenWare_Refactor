@@ -63,6 +63,17 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.button3 = new System.Windows.Forms.Button();
+            this.ClientInsurance = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.ClientAge = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.ClientEmail = new System.Windows.Forms.TextBox();
+            this.ClientLName = new System.Windows.Forms.TextBox();
+            this.ClientFName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.logError = new System.Windows.Forms.TextBox();
@@ -90,16 +101,6 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tblInventoryBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -427,16 +428,17 @@
             // 
             // tabPage6
             // 
-            this.tabPage6.Controls.Add(this.textBox8);
+            this.tabPage6.Controls.Add(this.button3);
+            this.tabPage6.Controls.Add(this.ClientInsurance);
             this.tabPage6.Controls.Add(this.label20);
-            this.tabPage6.Controls.Add(this.textBox7);
+            this.tabPage6.Controls.Add(this.ClientAge);
             this.tabPage6.Controls.Add(this.label19);
             this.tabPage6.Controls.Add(this.label18);
             this.tabPage6.Controls.Add(this.label17);
             this.tabPage6.Controls.Add(this.label16);
-            this.tabPage6.Controls.Add(this.textBox6);
-            this.tabPage6.Controls.Add(this.textBox4);
-            this.tabPage6.Controls.Add(this.textBox3);
+            this.tabPage6.Controls.Add(this.ClientEmail);
+            this.tabPage6.Controls.Add(this.ClientLName);
+            this.tabPage6.Controls.Add(this.ClientFName);
             this.tabPage6.Controls.Add(this.label6);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
@@ -444,6 +446,101 @@
             this.tabPage6.TabIndex = 4;
             this.tabPage6.Text = "Client Use";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(113, 193);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "Submit";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // ClientInsurance
+            // 
+            this.ClientInsurance.Location = new System.Drawing.Point(88, 139);
+            this.ClientInsurance.Name = "ClientInsurance";
+            this.ClientInsurance.Size = new System.Drawing.Size(100, 20);
+            this.ClientInsurance.TabIndex = 10;
+            this.ClientInsurance.Text = "default";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(28, 142);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(54, 13);
+            this.label20.TabIndex = 9;
+            this.label20.Text = "Insurance";
+            // 
+            // ClientAge
+            // 
+            this.ClientAge.Location = new System.Drawing.Point(88, 113);
+            this.ClientAge.Name = "ClientAge";
+            this.ClientAge.Size = new System.Drawing.Size(100, 20);
+            this.ClientAge.TabIndex = 8;
+            this.ClientAge.Text = "178";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(56, 116);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(26, 13);
+            this.label19.TabIndex = 7;
+            this.label19.Text = "Age";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(50, 90);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(32, 13);
+            this.label18.TabIndex = 6;
+            this.label18.Text = "Email";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(24, 64);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(58, 13);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "Last Name";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(25, 35);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(57, 13);
+            this.label16.TabIndex = 4;
+            this.label16.Text = "First Name";
+            // 
+            // ClientEmail
+            // 
+            this.ClientEmail.Location = new System.Drawing.Point(88, 87);
+            this.ClientEmail.Name = "ClientEmail";
+            this.ClientEmail.Size = new System.Drawing.Size(100, 20);
+            this.ClientEmail.TabIndex = 3;
+            this.ClientEmail.Text = "default.com";
+            // 
+            // ClientLName
+            // 
+            this.ClientLName.Location = new System.Drawing.Point(88, 61);
+            this.ClientLName.Name = "ClientLName";
+            this.ClientLName.Size = new System.Drawing.Size(100, 20);
+            this.ClientLName.TabIndex = 2;
+            this.ClientLName.Text = "default";
+            // 
+            // ClientFName
+            // 
+            this.ClientFName.Location = new System.Drawing.Point(88, 32);
+            this.ClientFName.Name = "ClientFName";
+            this.ClientFName.Size = new System.Drawing.Size(100, 20);
+            this.ClientFName.TabIndex = 1;
+            this.ClientFName.Text = "default";
             // 
             // label6
             // 
@@ -574,6 +671,7 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Table1TableAdapter = null;
             this.tableAdapterManager.tblCustomerTableAdapter = null;
             this.tableAdapterManager.tblInventoryTableAdapter = this.tblInventoryTableAdapter;
             this.tableAdapterManager.UpdateOrder = CVGreenWare.WarehouseDatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
@@ -702,86 +800,6 @@
             this.tblInventoryBindingNavigatorSaveItem.Text = "Save Data";
             this.tblInventoryBindingNavigatorSaveItem.Click += new System.EventHandler(this.tblInventoryBindingNavigatorSaveItem_Click);
             // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(88, 32);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 1;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(88, 61);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 2;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(88, 87);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 3;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(25, 35);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(57, 13);
-            this.label16.TabIndex = 4;
-            this.label16.Text = "First Name";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(24, 64);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(58, 13);
-            this.label17.TabIndex = 5;
-            this.label17.Text = "Last Name";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(50, 90);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(32, 13);
-            this.label18.TabIndex = 6;
-            this.label18.Text = "Email";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(56, 116);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(26, 13);
-            this.label19.TabIndex = 7;
-            this.label19.Text = "Age";
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(88, 113);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 8;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(28, 142);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(54, 13);
-            this.label20.TabIndex = 9;
-            this.label20.Text = "Insurance";
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(88, 139);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 10;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -883,16 +901,17 @@
         private System.Windows.Forms.Button buttonInventory;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox ClientInsurance;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox ClientAge;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox ClientEmail;
+        private System.Windows.Forms.TextBox ClientLName;
+        private System.Windows.Forms.TextBox ClientFName;
+        private System.Windows.Forms.Button button3;
     }
 }
 

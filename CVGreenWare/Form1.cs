@@ -123,6 +123,31 @@ namespace CVGreenWare
         #endregion
 
         #region Client Use
+        private void button3_Click(object sender, EventArgs e)
+        {
+            CreatePatientRecord();
+        }
+
+        private void CreatePatientRecord()
+        {
+            string fileName = @"C:\Users\bucha\CVGreenWare\CVGreenWare\WarehouseDatabase.accdb";
+            string name = ClientFName.Text + " " + ClientLName.Text;
+            string email = ClientEmail.Text;
+            int age = Int32.Parse(ClientAge.Text);
+            string insurance = ClientInsurance.Text;
+
+            using (OleDbConnection con = new OleDbConnection())
+            {
+                DataSet ds = new DataSet();
+                OleDbDataAdapter da = new OleDbDataAdapter("Select * from [tblCustomers]", string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};", fileName));
+                con.Open();
+                da.Fill(ds, "tblCustomers");
+
+                ds.Tables["tblCustomers"].Rows.Add(name, age, insurance, DateTime.Today, email);
+                da.Update(ds, "tblCustomers");
+
+            }
+        }
 
         #endregion
 
