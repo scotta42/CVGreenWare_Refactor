@@ -674,7 +674,6 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Table1TableAdapter = null;
             this.tableAdapterManager.tblCustomerTableAdapter = null;
             this.tableAdapterManager.tblInventoryTableAdapter = this.tblInventoryTableAdapter;
             this.tableAdapterManager.UpdateOrder = CVGreenWare.WarehouseDatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
