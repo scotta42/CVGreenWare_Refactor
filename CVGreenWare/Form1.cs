@@ -144,34 +144,7 @@ namespace CVGreenWare
 
         private void GetFromExcel(string fileName)
         {
-            //OleDbConnection MyConnection;
-            //DataSet DtSet;
-            //OleDbDataAdapter MyCommand;
-            //MyConnection = new OleDbConnection(string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0; Data Source ={0};Extended Properties=Excel 12.0;", fileName));
-            //MyCommand = new OleDbDataAdapter("select * from [Sheet1$]", MyConnection);
-            //MyCommand.TableMappings.Add("Table", "warehouseDatabaseDataSet.tblCustomer");
-            //DtSet = new DataSet();
-            //MyCommand.Fill(DtSet);
-            ////Console.Write(DtSet.Tables.Count.ToString());
-            ////warehouseDatabaseDataSet.tblCustomer.Rows.Add(DtSet.Tables[0]);
-            //MyConnection.Close();
-
-
-            //using (OleDbConnection con = new OleDbConnection(string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0; Data Source ={0};Extended Properties=Excel 12.0;", fileName)))
-            //{
-            //    DataTable DT = new DataTable();
-            //    string query = string.Format("select * from [Sheet1$]");
-            //    con.Open();
-            //    OleDbDataAdapter adapter = new OleDbDataAdapter(query, con);
-            //    adapter.Fill(DT);
-            //    foreach (DataRow dr in DT.Rows)
-            //    {
-            //        warehouseDatabaseDataSet.tblCustomer.Rows.Add(dr);
-            //    }
-
-            //}
-
-            using (OleDbConnection con = new OleDbConnection(string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0; Data Source ={0};Extended Properties=Excel 12.0;", fileName)))
+            using (OleDbConnection con = new OleDbConnection(string.Format("Provider = Microsoft.ACE.OLEDB.12.0; Data Source ={0};Extended Properties = Excel 12.0 Xml;HDR=NO", fileName)))
             {
                 DataTable DT = new DataTable();
                 string query = string.Format("select * from [Sheet1$]");
@@ -182,7 +155,6 @@ namespace CVGreenWare
                 {
                     warehouseDatabaseDataSet.tblCustomer.Rows.Add(dr);
                 }
-
             }
         }
         #endregion
