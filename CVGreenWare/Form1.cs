@@ -153,6 +153,7 @@ namespace CVGreenWare
         private void CreatePatientRecord()
         {
             // Gather info from form
+            // TODO: Refactor fileName to not be hard coded
             string fileName = @"C:\Users\bucha\CVGreenWare\CVGreenWare\WarehouseDatabase.accdb";
             string name = ClientFName.Text + " " + ClientLName.Text;
             string email = ClientEmail.Text;
@@ -170,6 +171,7 @@ namespace CVGreenWare
 
                 ds.Tables["tblCustomers"].Rows.Add(name, age, insurance, DateTime.Today, email);
                 da.Update(ds, "tblCustomers");
+                con.Close();
             }
         }
         #endregion
@@ -212,10 +214,10 @@ namespace CVGreenWare
         private void button2_Click(object sender, EventArgs e)
         {
             string brianHome = @"C:\Users\bucha\CVGreenWare\CVGreenWare\Excel Docs\Patient.xlsx";
-            GetFromExcel(brianHome);
+            ExcelToCustomerDB(brianHome);
         }
 
-        private void GetFromExcel(string fileName)
+        private void ExcelToCustomerDB(string fileName)
         {
             using (OleDbConnection con = new OleDbConnection(string.Format("Provider = Microsoft.ACE.OLEDB.12.0; Data Source ={0};Extended Properties = Excel 12.0 Xml;HDR=NO", fileName)))
             {
@@ -231,5 +233,6 @@ namespace CVGreenWare
             }
         }
         #endregion
+
     }
 }

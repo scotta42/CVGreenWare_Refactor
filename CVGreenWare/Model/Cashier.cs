@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CVGreenWare.Model
 {
-    class Cashier : User
+    class Cashier : FormUser
     {
     }
 }

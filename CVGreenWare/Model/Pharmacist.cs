@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CVGreenWare.Model
 {
-    class Pharmacist : User
+    class Pharmacist : FormUser
     {
 
     }

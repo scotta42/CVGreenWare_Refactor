@@ -29,5 +29,11 @@ namespace CVGreenWare
             program.Show();
             this.Hide();
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            CreateUser createUser = new CreateUser();
+            createUser.Show();
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CVGreenWare.Model
 {
-    class Customer : User
+    class Customer : FormUser
     {
         #region Fields
         private int _age;

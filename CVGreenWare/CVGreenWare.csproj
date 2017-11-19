@@ -84,6 +84,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateUser.Designer.cs">
+      <DependentUpon>CreateUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,7 +114,7 @@
     <Compile Include="Model\Perscription.cs" />
     <Compile Include="Model\Pharmacist.cs" />
     <Compile Include="Model\Pharmacy.cs" />
-    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\FormUser.cs" />
     <Compile Include="Model\Warehouse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -122,6 +128,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>WarehouseDatabaseDataSet1.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CreateUser.resx">
+      <DependentUpon>CreateUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
