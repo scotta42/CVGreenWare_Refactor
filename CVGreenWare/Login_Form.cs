@@ -20,6 +20,7 @@ namespace CVGreenWare
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
+            int hardCodeUser;
             try
             {
 
@@ -44,6 +45,7 @@ namespace CVGreenWare
                     if (textBoxUsername.Text == "Mchicas")
                     {
                         MessageBox.Show("Login Successful \nWelcome back, Milton");
+                        hardCodeUser = 1;
                                             }
                     if (textBoxUsername.Text == "Bbuchan")
                     {
@@ -58,7 +60,14 @@ namespace CVGreenWare
                         MessageBox.Show("Login Successful \nWelcome back, Chris");
                     }
 
-                    AttemptSuccess();
+                    if (hardCodeUser == null)
+	                {
+                        AttemptSuccess();
+	                }
+                    else
+	                {
+                        AttemptSuccess(hardCodeUser);
+	                }
                 }
                 else if (count > 1)
                 {
@@ -76,6 +85,14 @@ namespace CVGreenWare
         }
 
 
+
+        private void AttemptSuccess(int I)
+        {
+            //test data
+            Form1 program = new Form1(I);
+            program.Show();
+            this.Hide();
+        }
 
         private void AttemptSuccess()
         {

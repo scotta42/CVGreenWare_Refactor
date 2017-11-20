@@ -20,7 +20,19 @@ namespace CVGreenWare
             InitializeComponent();
         }
 
+        public Form1(int I)
+        {
+            HideTabs(I);
+            InitializeComponent();
+        }
 
+        private void HideTabs(int I)
+        {
+            if (I == 1)
+	        {
+                 tabControl1.TabPages.Remove(tabPage1);
+	        }
+        }
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {
