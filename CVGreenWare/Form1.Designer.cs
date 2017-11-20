@@ -61,6 +61,15 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.insuranceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastVisitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tblCustomerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.warehouseDatabaseDataSet1 = new CVGreenWare.WarehouseDatabaseDataSet1();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.button3 = new System.Windows.Forms.Button();
             this.ClientInsurance = new System.Windows.Forms.TextBox();
@@ -100,16 +109,8 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tblInventoryBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.warehouseDatabaseDataSet1 = new CVGreenWare.WarehouseDatabaseDataSet1();
-            this.tblCustomerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblCustomerTableAdapter = new CVGreenWare.WarehouseDatabaseDataSet1TableAdapters.tblCustomerTableAdapter();
-            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.insuranceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastVisitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonLogout = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -120,15 +121,15 @@
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblCustomerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.warehouseDatabaseDataSet1)).BeginInit();
             this.tabPage6.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.tabPage8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblInventoryBindingNavigator)).BeginInit();
             this.tblInventoryBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warehouseDatabaseDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblCustomerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -429,6 +430,79 @@
             this.tabPage5.Text = "Patient Record";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.customerIDDataGridViewTextBoxColumn,
+            this.customerNameDataGridViewTextBoxColumn,
+            this.ageDataGridViewTextBoxColumn,
+            this.insuranceDataGridViewTextBoxColumn,
+            this.lastVisitDataGridViewTextBoxColumn,
+            this.emailDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.tblCustomerBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(24, 27);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(738, 433);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // customerIDDataGridViewTextBoxColumn
+            // 
+            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.HeaderText = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
+            this.customerIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // customerNameDataGridViewTextBoxColumn
+            // 
+            this.customerNameDataGridViewTextBoxColumn.DataPropertyName = "Customer Name";
+            this.customerNameDataGridViewTextBoxColumn.HeaderText = "Customer Name";
+            this.customerNameDataGridViewTextBoxColumn.Name = "customerNameDataGridViewTextBoxColumn";
+            this.customerNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ageDataGridViewTextBoxColumn
+            // 
+            this.ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
+            this.ageDataGridViewTextBoxColumn.HeaderText = "Age";
+            this.ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
+            this.ageDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // insuranceDataGridViewTextBoxColumn
+            // 
+            this.insuranceDataGridViewTextBoxColumn.DataPropertyName = "Insurance";
+            this.insuranceDataGridViewTextBoxColumn.HeaderText = "Insurance";
+            this.insuranceDataGridViewTextBoxColumn.Name = "insuranceDataGridViewTextBoxColumn";
+            this.insuranceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // lastVisitDataGridViewTextBoxColumn
+            // 
+            this.lastVisitDataGridViewTextBoxColumn.DataPropertyName = "Last Visit";
+            this.lastVisitDataGridViewTextBoxColumn.HeaderText = "Last Visit";
+            this.lastVisitDataGridViewTextBoxColumn.Name = "lastVisitDataGridViewTextBoxColumn";
+            this.lastVisitDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tblCustomerBindingSource
+            // 
+            this.tblCustomerBindingSource.DataMember = "tblCustomer";
+            this.tblCustomerBindingSource.DataSource = this.warehouseDatabaseDataSet1;
+            // 
+            // warehouseDatabaseDataSet1
+            // 
+            this.warehouseDatabaseDataSet1.DataSetName = "WarehouseDatabaseDataSet1";
+            this.warehouseDatabaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // tabPage6
             // 
             this.tabPage6.Controls.Add(this.button3);
@@ -676,6 +750,7 @@
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.tblCustomerTableAdapter = null;
             this.tableAdapterManager.tblInventoryTableAdapter = this.tblInventoryTableAdapter;
+            this.tableAdapterManager.tblUsersTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = CVGreenWare.WarehouseDatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // tblInventoryBindingNavigator
@@ -802,88 +877,26 @@
             this.tblInventoryBindingNavigatorSaveItem.Text = "Save Data";
             this.tblInventoryBindingNavigatorSaveItem.Click += new System.EventHandler(this.tblInventoryBindingNavigatorSaveItem_Click);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.customerIDDataGridViewTextBoxColumn,
-            this.customerNameDataGridViewTextBoxColumn,
-            this.ageDataGridViewTextBoxColumn,
-            this.insuranceDataGridViewTextBoxColumn,
-            this.lastVisitDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.tblCustomerBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(24, 27);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(738, 433);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // warehouseDatabaseDataSet1
-            // 
-            this.warehouseDatabaseDataSet1.DataSetName = "WarehouseDatabaseDataSet1";
-            this.warehouseDatabaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tblCustomerBindingSource
-            // 
-            this.tblCustomerBindingSource.DataMember = "tblCustomer";
-            this.tblCustomerBindingSource.DataSource = this.warehouseDatabaseDataSet1;
-            // 
             // tblCustomerTableAdapter
             // 
             this.tblCustomerTableAdapter.ClearBeforeFill = true;
             // 
-            // customerIDDataGridViewTextBoxColumn
+            // buttonLogout
             // 
-            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
-            this.customerIDDataGridViewTextBoxColumn.HeaderText = "CustomerID";
-            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
-            this.customerIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // customerNameDataGridViewTextBoxColumn
-            // 
-            this.customerNameDataGridViewTextBoxColumn.DataPropertyName = "Customer Name";
-            this.customerNameDataGridViewTextBoxColumn.HeaderText = "Customer Name";
-            this.customerNameDataGridViewTextBoxColumn.Name = "customerNameDataGridViewTextBoxColumn";
-            this.customerNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ageDataGridViewTextBoxColumn
-            // 
-            this.ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
-            this.ageDataGridViewTextBoxColumn.HeaderText = "Age";
-            this.ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
-            this.ageDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // insuranceDataGridViewTextBoxColumn
-            // 
-            this.insuranceDataGridViewTextBoxColumn.DataPropertyName = "Insurance";
-            this.insuranceDataGridViewTextBoxColumn.HeaderText = "Insurance";
-            this.insuranceDataGridViewTextBoxColumn.Name = "insuranceDataGridViewTextBoxColumn";
-            this.insuranceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // lastVisitDataGridViewTextBoxColumn
-            // 
-            this.lastVisitDataGridViewTextBoxColumn.DataPropertyName = "Last Visit";
-            this.lastVisitDataGridViewTextBoxColumn.HeaderText = "Last Visit";
-            this.lastVisitDataGridViewTextBoxColumn.Name = "lastVisitDataGridViewTextBoxColumn";
-            this.lastVisitDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
+            this.buttonLogout.Location = new System.Drawing.Point(942, 38);
+            this.buttonLogout.Name = "buttonLogout";
+            this.buttonLogout.Size = new System.Drawing.Size(75, 23);
+            this.buttonLogout.TabIndex = 2;
+            this.buttonLogout.Text = "LOGOUT";
+            this.buttonLogout.UseVisualStyleBackColor = true;
+            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1140, 613);
+            this.Controls.Add(this.buttonLogout);
             this.Controls.Add(this.tblInventoryBindingNavigator);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
@@ -903,6 +916,9 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblCustomerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.warehouseDatabaseDataSet1)).EndInit();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             this.tabPage7.ResumeLayout(false);
@@ -912,9 +928,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tblInventoryBindingNavigator)).EndInit();
             this.tblInventoryBindingNavigator.ResumeLayout(false);
             this.tblInventoryBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warehouseDatabaseDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblCustomerBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1002,6 +1015,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn insuranceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastVisitDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button buttonLogout;
     }
 }
 

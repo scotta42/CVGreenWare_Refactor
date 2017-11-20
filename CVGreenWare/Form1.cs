@@ -20,6 +20,15 @@ namespace CVGreenWare
             InitializeComponent();
         }
 
+
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            Login_Form login = new Login_Form();
+            login.Show();
+            this.Hide();
+        }
+
         #region Pharmacy
         /// <summary>
         /// This region is for Pharmacist and Administrator users to access local pharmacy functionallity
@@ -213,7 +222,7 @@ namespace CVGreenWare
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string brianHome = @"C:\Users\bucha\CVGreenWare\CVGreenWare\Excel Docs\Patient.xlsx";
+            string brianHome = @"C:\Users\Milton\source\repos\CVGreenWare\CVGreenWare\Excel Docs\Patient.xlsx";
             ExcelToCustomerDB(brianHome);
         }
 
@@ -233,6 +242,7 @@ namespace CVGreenWare
             }
         }
         #endregion
+
 
     }
 }
