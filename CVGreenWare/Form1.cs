@@ -91,8 +91,6 @@ namespace CVGreenWare
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'warehouseDatabaseDataSet1.tblCustomer' table. You can move, or remove it, as needed.
-            this.tblCustomerTableAdapter.Fill(this.warehouseDatabaseDataSet1.tblCustomer);
             // TODO: This line of code loads data into the 'warehouseDatabaseDataSet.tblInventory' table. You can move, or remove it, as needed.
             this.tblInventoryTableAdapter.Fill(this.warehouseDatabaseDataSet.tblInventory);
 
@@ -161,26 +159,32 @@ namespace CVGreenWare
 
         private void CreatePatientRecord()
         {
-            // Gather info from form
-            // TODO: Refactor fileName to not be hard coded
-            string fileName = @"C:\Users\bucha\CVGreenWare\CVGreenWare\WarehouseDatabase.accdb";
-            string name = ClientFName.Text + " " + ClientLName.Text;
-            string email = ClientEmail.Text;
-            int age = Int32.Parse(ClientAge.Text);
-            string insurance = ClientInsurance.Text;
-            // TODO: Method to scrub input so DB corruption doesn't occur
+            System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
+            conn.ConnectionString = (@"Provider=Microsoft.ACE.OLEDB.12.0; Data Source = |DataDirectory|\\WarehouseDatabase.accdb; Persist Security Info = True;");
 
-            // Open connection to DB and save customer info
-            using (OleDbConnection con = new OleDbConnection(string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};", fileName)))
+            try
             {
-                DataSet ds = new DataSet();
-                OleDbDataAdapter da = new OleDbDataAdapter("Select * from [tblCustomers]", string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};", fileName));
-                con.Open();
-                da.Fill(ds, "tblCustomers");
+                conn.Open();
+                String FirstName = ClientFName.Text.ToString();
+                String LastName = ClientLName.Text.ToString();
+                String Email = ClientEmail.Text.ToString();
+                String Age = ClientAge.Text.ToString();
+                String Insurance = ClientInsurance.Text.ToString();
+                String Date = DateTime.Today.ToShortDateString();
+                String my_querry = "INSERT INTO tblCustomer(FirstName, LastName, Age, Insurance, LastVisit, Email) VALUES ('" + FirstName + "','" + LastName + "','" + Age + "','" + Insurance + "','" + Date + "','" + Email + "')";
 
-                ds.Tables["tblCustomers"].Rows.Add(name, age, insurance, DateTime.Today, email);
-                da.Update(ds, "tblCustomers");
-                con.Close();
+                OleDbCommand cmd = new OleDbCommand(my_querry, conn);
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Data saved successfuly...!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed due to" + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
             }
         }
         #endregion
