@@ -162,7 +162,7 @@ namespace CVGreenWare
             // TODO: Method to scrub input so DB corruption doesn't occur
 
             // Open connection to DB and save customer info
-            using (OleDbConnection con = new OleDbConnection())
+            using (OleDbConnection con = new OleDbConnection(string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};", fileName)))
             {
                 DataSet ds = new DataSet();
                 OleDbDataAdapter da = new OleDbDataAdapter("Select * from [tblCustomers]", string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};", fileName));
