@@ -22,16 +22,71 @@ namespace CVGreenWare
 
         public Form1(int I)
         {
-            HideTabs(I);
             InitializeComponent();
+            HideTabs(I);
         }
 
         private void HideTabs(int I)
         {
-            if (I == 1)
-	        {
-                 tabControl1.TabPages.Remove(tabPage1);
-	        }
+            // TODO: This is reversed logic, it needs to show tabs instead of hide them so that the default login can be a customer login which reveals no tabs other than the customer form
+            switch (I)
+            {
+                case 1:
+                    // Hides Tabs that Administrators don't need
+                    AdministratorTabs();
+                    break;
+                case 2:
+                    // Hides Tabs that Pharmacists don't need
+                    PharmacistTabs();
+                    break;
+                case 3:
+                    // Hides Tabs that Financial Managers don't need
+                    FinanceTabs();
+                    break;
+                case 4:
+                    // Hides Tabs that Customers don't need
+                    CustomerTabs();
+                    break;
+                default:
+                    // Hides No Tabs
+                    break;
+            }
+        }
+
+        private void AdministratorTabs()
+        {
+            tabControl1.TabPages.Remove(tabPage3);
+            tabControl1.TabPages.Remove(tabPage5);
+            tabControl1.TabPages.Remove(tabPage6);
+            tabControl1.TabPages.Remove(tabPage7);
+        }
+
+        private void PharmacistTabs()
+        {
+            tabControl1.TabPages.Remove(tabPage4);
+            tabControl1.TabPages.Remove(tabPage6);
+            tabControl1.TabPages.Remove(tabPage7);
+        }
+
+        private void FinanceTabs()
+        {
+            tabControl1.TabPages.Remove(tabPage3);
+            tabControl1.TabPages.Remove(tabPage4);
+            tabControl1.TabPages.Remove(tabPage5);
+            tabControl1.TabPages.Remove(tabPage6);
+            tabControl1.TabPages.Remove(tabPage7);
+            tabControl1.TabPages.Remove(tabPage8);
+        }
+
+        private void CustomerTabs()
+        {
+            tabControl1.TabPages.Remove(tabPage1);
+            tabControl1.TabPages.Remove(tabPage2);
+            tabControl1.TabPages.Remove(tabPage3);
+            tabControl1.TabPages.Remove(tabPage4);
+            tabControl1.TabPages.Remove(tabPage5);
+            tabControl1.TabPages.Remove(tabPage7);
+            tabControl1.TabPages.Remove(tabPage8);
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
