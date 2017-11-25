@@ -20,6 +20,13 @@ namespace CVGreenWare.Model
 
         }
 
+        public Customer(string name, int age, string insurance, DateTime lastvisist, string email)
+        {
+            // TODO: parse name and set first and last
+            FirstName = name; LastName = name;
+            _age = age; _insurance = insurance; _lastVisit = lastvisist; _email = email;
+        }
+
         #region Properties
         public DateTime LastVisit
         {

@@ -10,11 +10,13 @@ using System.Windows.Forms;
 //added
 // we can treat the file as a database 
 using System.Data.OleDb;
+using System.Data.SqlClient;
 
 namespace CVGreenWare
 {
     public partial class Form1 : Form
     {
+        #region FormLoad/Close
         public Form1()
         {
             InitializeComponent();
@@ -91,10 +93,14 @@ namespace CVGreenWare
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {
+            // TODO: we shouldn't create a new form because the old form already exists, we should create a deconstructor that fires an event, add a listener onto
+            //       the starting login_form that shows it again after this one finishes closing
             Login_Form login = new Login_Form();
             login.Show();
             this.Hide();
         }
+
+        #endregion
 
         #region Pharmacy
         /// <summary>
@@ -199,7 +205,7 @@ namespace CVGreenWare
         /// <summary>
         /// This region is for Pharmacist users for accessing prescription functionallity
         /// </summary>
-        
+
         #endregion
 
         #region Point Of Sale
@@ -294,8 +300,6 @@ namespace CVGreenWare
         private void button2_Click(object sender, EventArgs e)
         {
             CheckForNewExcelUsers();
-            //string brianHome = @"C:\Users\Milton\source\repos\CVGreenWare\CVGreenWare\Excel Docs\Patient.xlsx";
-            //ExcelToCustomerDB(brianHome);
         }
 
         private void CheckForNewExcelUsers()
@@ -306,26 +310,50 @@ namespace CVGreenWare
             OleDbDataReader myReader;
             con.Open();
             myReader = cmd.ExecuteReader();
+            //List<Model.Customer> customers = new List<Model.Customer>();
+            DataTable customers = new DataTable();
+            customers.Columns.Add("FirstName"); customers.Columns.Add("LastName"); customers.Columns.Add("Age"); customers.Columns.Add("Insurance"); customers.Columns.Add("LastVisit"); customers.Columns.Add("Email");
             while (myReader.Read())
             {
-                MessageBox.Show(myReader.GetString(1));
+                // EXCEL FILE LAYOUT
+                // 0    1       2       3           4           5
+                // ID   Name    Age     Insurance   Last Visit  Email
+                //
+                // ID field should be auto-generated in the DB
+                // TODO: delete id field and assosiated code
+
+                Model.Customer cust = new Model.Customer(myReader.GetString(1), Int32.Parse(myReader.GetString(2)), myReader.GetString(3), DateTime.Parse(myReader.GetString(4)), myReader.GetString(5));
+                //customers.Add(cust);
+
+                customers.Rows.Add(cust.FirstName, cust.LastName, cust.Age, cust.Insurance, cust.LastVisit, cust.Email);
+            }
+            con.Close();
+
+            if (customers.Rows.Count > 0)
+            {
+                InsertIntoDatabase(customers);
             }
         }
 
-        private void ExcelToCustomerDB(string fileName)
+        private void InsertIntoDatabase(DataTable customers)
         {
-            //using (OleDbConnection con = new OleDbConnection(string.Format("Provider = Microsoft.ACE.OLEDB.12.0; Data Source ={0};Extended Properties = Excel 12.0 Xml;HDR=NO", fileName)))
-            //{
-            //    DataTable DT = new DataTable();
-            //    string query = string.Format("select * from [Sheet1$]");
-            //    con.Open();
-            //    OleDbDataAdapter adapter = new OleDbDataAdapter(query, con);
-            //    adapter.Fill(DT);
-            //    foreach (DataRow dr in DT.Rows)
-            //    {
-            //        warehouseDatabaseDataSet.tblCustomer.Rows.Add(dr);
-            //    }
-            //}
+            string fileName = @"|DataDirectory|\WarehouseDatabase.accdb";
+            OleDbConnection con = new OleDbConnection(string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0; Data Source = {0}; Persist Security Info = True;", fileName));
+            OleDbCommand cmd = new OleDbCommand("INSERT INTO tblCustomer(FirstName, LastName, Age, Insurance, LastVisit, Email) VALUES(@FN, @LN, @A, @I, @LV, @E)", con);
+            con.Open();
+
+            foreach (DataRow dr in customers.Rows)
+            {
+                cmd.Parameters.AddWithValue("@FN", dr["FirstName"]);
+                cmd.Parameters.AddWithValue("@LN", dr["LastName"]);
+                cmd.Parameters.AddWithValue("@A", dr["Age"]);
+                cmd.Parameters.AddWithValue("@I", dr["Insurance"]);
+                cmd.Parameters.AddWithValue("@LV", dr["LastVisit"]);
+                cmd.Parameters.AddWithValue("@E", dr["Email"]);
+
+                cmd.ExecuteNonQuery();
+            }
+            con.Close();
         }
         #endregion
 
