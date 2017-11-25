@@ -293,24 +293,39 @@ namespace CVGreenWare
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string brianHome = @"C:\Users\Milton\source\repos\CVGreenWare\CVGreenWare\Excel Docs\Patient.xlsx";
-            ExcelToCustomerDB(brianHome);
+            CheckForNewExcelUsers();
+            //string brianHome = @"C:\Users\Milton\source\repos\CVGreenWare\CVGreenWare\Excel Docs\Patient.xlsx";
+            //ExcelToCustomerDB(brianHome);
+        }
+
+        private void CheckForNewExcelUsers()
+        {
+            string fileName = @"|DataDirectory|\Excel Docs\Patient.xlsx";
+            OleDbConnection con = new OleDbConnection(string.Format(@"Provider= Microsoft.ACE.OLEDB.12.0;Data Source={0}; Extended Properties = 'Excel 12.0 Xml;HDR=NO';", fileName));
+            OleDbCommand cmd = new OleDbCommand("Select * from [Sheet1$]", con);
+            OleDbDataReader myReader;
+            con.Open();
+            myReader = cmd.ExecuteReader();
+            while (myReader.Read())
+            {
+                MessageBox.Show(myReader.GetString(1));
+            }
         }
 
         private void ExcelToCustomerDB(string fileName)
         {
-            using (OleDbConnection con = new OleDbConnection(string.Format("Provider = Microsoft.ACE.OLEDB.12.0; Data Source ={0};Extended Properties = Excel 12.0 Xml;HDR=NO", fileName)))
-            {
-                DataTable DT = new DataTable();
-                string query = string.Format("select * from [Sheet1$]");
-                con.Open();
-                OleDbDataAdapter adapter = new OleDbDataAdapter(query, con);
-                adapter.Fill(DT);
-                foreach (DataRow dr in DT.Rows)
-                {
-                    warehouseDatabaseDataSet.tblCustomer.Rows.Add(dr);
-                }
-            }
+            //using (OleDbConnection con = new OleDbConnection(string.Format("Provider = Microsoft.ACE.OLEDB.12.0; Data Source ={0};Extended Properties = Excel 12.0 Xml;HDR=NO", fileName)))
+            //{
+            //    DataTable DT = new DataTable();
+            //    string query = string.Format("select * from [Sheet1$]");
+            //    con.Open();
+            //    OleDbDataAdapter adapter = new OleDbDataAdapter(query, con);
+            //    adapter.Fill(DT);
+            //    foreach (DataRow dr in DT.Rows)
+            //    {
+            //        warehouseDatabaseDataSet.tblCustomer.Rows.Add(dr);
+            //    }
+            //}
         }
         #endregion
 
