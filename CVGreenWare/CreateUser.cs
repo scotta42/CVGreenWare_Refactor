@@ -18,6 +18,7 @@ namespace CVGreenWare
         {
             userType = 0;
             InitializeComponent();
+            radioButton1.PerformClick();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -26,26 +27,25 @@ namespace CVGreenWare
             {
                 CreateNewUser();
             }
+            this.Close();
         }
 
         private void CreateNewUser()
         {
             Model.FormUser newUser = new Model.FormUser(txtFName.Text, txtLName.Text, txtUName.Text, txtPassword.Text, userType);
-            
-            // Open connection to DB and save User
-            using (OleDbConnection con = new OleDbConnection())
-            {
-                // TODO: Refactor fileName to not be hard coded
-                string fileName = @"C:\Users\bucha\CVGreenWare\CVGreenWare\WarehouseDatabase.accdb";
-                DataSet ds = new DataSet();
-                OleDbDataAdapter da = new OleDbDataAdapter("Select * from [tblUsers]", string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};", fileName));
-                con.Open();
-                da.Fill(ds, "tblUsers");
 
-                ds.Tables["tblUsers"].Rows.Add(newUser.FirstName, newUser.LastName, newUser.UserName, newUser.Password, newUser.Type);
-                da.Update(ds, "tblUsers");
-                con.Close();
-            }
+            string fileName = @"|DataDirectory|\WarehouseDatabase.accdb";
+            OleDbConnection con = new OleDbConnection(string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0; Data Source = {0}; Persist Security Info = True;", fileName));
+            OleDbCommand cmd = new OleDbCommand("INSERT INTO tblUsers(FirstName, LastName, UserName, PWord, Type) VALUES(@FN, @LN, @UN, @P, @T)", con);
+            con.Open();
+            cmd.Parameters.AddWithValue("@FN", newUser.FirstName);
+            cmd.Parameters.AddWithValue("@LN", newUser.LastName);
+            cmd.Parameters.AddWithValue("@UN", newUser.UserName);
+            cmd.Parameters.AddWithValue("@P", newUser.Password);
+            cmd.Parameters.AddWithValue("@T", newUser.Type);
+
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
 
         private bool isFormValid()

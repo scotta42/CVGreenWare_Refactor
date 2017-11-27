@@ -25,9 +25,8 @@ namespace CVGreenWare
             {
 
                 OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0; Data Source = |DataDirectory|\\WarehouseDatabase.accdb; Persist Security Info = True;");
-                OleDbCommand cmd = new OleDbCommand("Select * from tblUsers where UserName = '" + this.textBoxUsername.Text + "'AND Password='" + this.textBoxPassword.Text + "'AND Type;", con);
+                OleDbCommand cmd = new OleDbCommand("Select * from tblUsers where UserName = '" + this.textBoxUsername.Text + "'AND PWord='" + this.textBoxPassword.Text + "'AND Type;", con);
                 OleDbDataReader myReader;
-
 
                 con.Open();
 

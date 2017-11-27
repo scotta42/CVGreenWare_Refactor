@@ -330,7 +330,7 @@ namespace CVGreenWare
                 InsertIntoDatabase(customers);
             }
         }
-
+        
         private void InsertIntoDatabase(DataTable customers)
         {
             string fileName = @"|DataDirectory|\WarehouseDatabase.accdb";
@@ -352,7 +352,5 @@ namespace CVGreenWare
             con.Close();
         }
         #endregion
-
-
     }
 }
