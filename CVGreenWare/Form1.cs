@@ -232,33 +232,27 @@ namespace CVGreenWare
 
         private void CreatePatientRecord()
         {
-            System.Data.OleDb.OleDbConnection conn = new System.Data.OleDb.OleDbConnection();
-            conn.ConnectionString = (@"Provider=Microsoft.ACE.OLEDB.12.0; Data Source = |DataDirectory|\\WarehouseDatabase.accdb; Persist Security Info = True;");
+            String FirstName = ClientFName.Text.ToString();
+            String LastName = ClientLName.Text.ToString();
+            String Email = ClientEmail.Text.ToString();
+            String Age = ClientAge.Text.ToString();
+            String Insurance = ClientInsurance.Text.ToString();
+            String Date = DateTime.Today.ToShortDateString();
 
-            try
-            {
-                conn.Open();
-                String FirstName = ClientFName.Text.ToString();
-                String LastName = ClientLName.Text.ToString();
-                String Email = ClientEmail.Text.ToString();
-                String Age = ClientAge.Text.ToString();
-                String Insurance = ClientInsurance.Text.ToString();
-                String Date = DateTime.Today.ToShortDateString();
-                String my_querry = "INSERT INTO tblCustomer(FirstName, LastName, Age, Insurance, LastVisit, Email) VALUES ('" + FirstName + "','" + LastName + "','" + Age + "','" + Insurance + "','" + Date + "','" + Email + "')";
+            string fileName = @"|DataDirectory|\WarehouseDatabase.accdb";
+            OleDbConnection con = new OleDbConnection(string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0; Data Source = {0}; Persist Security Info = True;", fileName));
+            OleDbCommand cmd = new OleDbCommand("INSERT INTO tblCustomer(FirstName, LastName, Age, Insurance, LastVisit, Email) VALUES(@FN, @LN, @A, @I, @LV, @E)", con);
+            con.Open();
 
-                OleDbCommand cmd = new OleDbCommand(my_querry, conn);
-                cmd.ExecuteNonQuery();
+            cmd.Parameters.AddWithValue("@FN", FirstName);
+            cmd.Parameters.AddWithValue("@LN", LastName);
+            cmd.Parameters.AddWithValue("@A", Age);
+            cmd.Parameters.AddWithValue("@I", Insurance);
+            cmd.Parameters.AddWithValue("@LV", Date);
+            cmd.Parameters.AddWithValue("@E", Email);
+            cmd.ExecuteNonQuery();
 
-                MessageBox.Show("Data saved successfuly...!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Failed due to" + ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
+            con.Close();
         }
         #endregion
 
@@ -310,9 +304,12 @@ namespace CVGreenWare
             OleDbDataReader myReader;
             con.Open();
             myReader = cmd.ExecuteReader();
-            //List<Model.Customer> customers = new List<Model.Customer>();
+
+            // Create Data Table to store data from Excel file
+            // TODO: This should happen after new user HAS been found
             DataTable customers = new DataTable();
             customers.Columns.Add("FirstName"); customers.Columns.Add("LastName"); customers.Columns.Add("Age"); customers.Columns.Add("Insurance"); customers.Columns.Add("LastVisit"); customers.Columns.Add("Email");
+
             while (myReader.Read())
             {
                 // EXCEL FILE LAYOUT
@@ -322,9 +319,8 @@ namespace CVGreenWare
                 // ID field should be auto-generated in the DB
                 // TODO: delete id field and assosiated code
 
+                // Add customer from Excel file to Data Table
                 Model.Customer cust = new Model.Customer(myReader.GetString(1), Int32.Parse(myReader.GetString(2)), myReader.GetString(3), DateTime.Parse(myReader.GetString(4)), myReader.GetString(5));
-                //customers.Add(cust);
-
                 customers.Rows.Add(cust.FirstName, cust.LastName, cust.Age, cust.Insurance, cust.LastVisit, cust.Email);
             }
             con.Close();
