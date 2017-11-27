@@ -163,7 +163,9 @@ namespace CVGreenWare
         {
             // Gather info from form
             // TODO: Refactor fileName to not be hard coded
-            string fileName = @"C:\Users\bucha\CVGreenWare\CVGreenWare\WarehouseDatabase.accdb";
+            //string fileName = @"C:\Users\bucha\CVGreenWare\CVGreenWare\WarehouseDatabase.accdb";
+            string fileName = @"|DataDirectory|\WarehouseDatabase.accdb";
+            
             string name = ClientFName.Text + " " + ClientLName.Text;
             string email = ClientEmail.Text;
             int age = Int32.Parse(ClientAge.Text);
@@ -171,7 +173,7 @@ namespace CVGreenWare
             // TODO: Method to scrub input so DB corruption doesn't occur
 
             // Open connection to DB and save customer info
-            using (OleDbConnection con = new OleDbConnection(string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};", fileName)))
+            using (OleDbConnection con = new OleDbConnection(string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0}; Persist Security Info = True;", fileName)))
             {
                 DataSet ds = new DataSet();
                 OleDbDataAdapter da = new OleDbDataAdapter("Select * from [tblCustomers]", string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};", fileName));
