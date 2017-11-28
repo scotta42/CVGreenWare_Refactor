@@ -28,6 +28,25 @@ namespace CVGreenWare
             HideTabs(I);
         }
 
+        private void tblInventoryBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.tblInventoryBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.warehouseDatabaseDataSet);
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'warehouseDatabaseDataSet.tblPrescriptions' table. You can move, or remove it, as needed.
+            this.tblPrescriptionsTableAdapter.Fill(this.warehouseDatabaseDataSet.tblPrescriptions);
+            // TODO: This line of code loads data into the 'warehouseDatabaseDataSet.tblCustomer' table. You can move, or remove it, as needed.
+            this.tblCustomerTableAdapter.Fill(this.warehouseDatabaseDataSet.tblCustomer);
+            // TODO: This line of code loads data into the 'warehouseDatabaseDataSet.tblInventory' table. You can move, or remove it, as needed.
+            this.tblInventoryTableAdapter.Fill(this.warehouseDatabaseDataSet.tblInventory);
+
+        }
+
         private void HideTabs(int I)
         {
             // TODO: This is reversed logic, it needs to show tabs instead of hide them so that the default login can be a customer login which reveals no tabs other than the customer form
@@ -60,14 +79,12 @@ namespace CVGreenWare
             tabControl1.TabPages.Remove(tabPage3);
             tabControl1.TabPages.Remove(tabPage5);
             tabControl1.TabPages.Remove(tabPage6);
-            tabControl1.TabPages.Remove(tabPage7);
         }
 
         private void PharmacistTabs()
         {
             tabControl1.TabPages.Remove(tabPage4);
             tabControl1.TabPages.Remove(tabPage6);
-            tabControl1.TabPages.Remove(tabPage7);
         }
 
         private void FinanceTabs()
@@ -76,7 +93,6 @@ namespace CVGreenWare
             tabControl1.TabPages.Remove(tabPage4);
             tabControl1.TabPages.Remove(tabPage5);
             tabControl1.TabPages.Remove(tabPage6);
-            tabControl1.TabPages.Remove(tabPage7);
             tabControl1.TabPages.Remove(tabPage8);
         }
 
@@ -87,7 +103,6 @@ namespace CVGreenWare
             tabControl1.TabPages.Remove(tabPage3);
             tabControl1.TabPages.Remove(tabPage4);
             tabControl1.TabPages.Remove(tabPage5);
-            tabControl1.TabPages.Remove(tabPage7);
             tabControl1.TabPages.Remove(tabPage8);
         }
 
@@ -154,20 +169,6 @@ namespace CVGreenWare
 
         }
 
-        private void tblInventoryBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.tblInventoryBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.warehouseDatabaseDataSet);
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'warehouseDatabaseDataSet.tblInventory' table. You can move, or remove it, as needed.
-            this.tblInventoryTableAdapter.Fill(this.warehouseDatabaseDataSet.tblInventory);
-
-        }
 
         private void buttonExport_Click(object sender, EventArgs e)
         {
@@ -193,9 +194,6 @@ namespace CVGreenWare
             invetory.Show();
             // test
         }
-
-
-
 
         // can update in read window up top and store in database 
 
@@ -256,35 +254,6 @@ namespace CVGreenWare
         }
         #endregion
 
-        #region User Login
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        //Setting up the Login button
-        //
-        //using userNameBox for the username textbox and passwordBox for the Password textbox
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if ((userNameBox.Text == "Anthony") && (passwordBox.Text == "Pinapple31!!"))
-            {
-                MessageBox.Show("Welcome Back Anthony");
-            }
-            else
-            {
-                logError.Visible = true;
-            }
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        #endregion
-
         #region HardCode
         /// <summary>
         /// This region will simulate functionality that will happen automatically through the system
@@ -327,7 +296,17 @@ namespace CVGreenWare
 
             if (customers.Rows.Count > 0)
             {
-                InsertIntoDatabase(customers);
+                try
+                {
+                    InsertIntoDatabase(customers);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("There was an error saving to the database.");
+                    throw;
+                }
+                // TODO: if there is an error, success message still displays
+                MessageBox.Show(customers.Rows.Count.ToString() + "customers were added to the database.");
             }
         }
         
