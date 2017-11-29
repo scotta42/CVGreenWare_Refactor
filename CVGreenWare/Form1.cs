@@ -203,6 +203,74 @@ namespace CVGreenWare
         /// <summary>
         /// This region is for Pharmacist users for accessing prescription functionallity
         /// </summary>
+        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CheckForNewExcelPrescription();
+        }
+
+        private void CheckForNewExcelPrescription()
+        {
+            // TODO: Refactor into a single function: Shared in HARDCODE region
+            string fileName = @"|DataDirectory|\Excel Docs\Prescription.xlsx";
+            OleDbConnection con = new OleDbConnection(string.Format(@"Provider= Microsoft.ACE.OLEDB.12.0;Data Source={0}; Extended Properties = 'Excel 12.0 Xml;HDR=NO';", fileName));
+            OleDbCommand cmd = new OleDbCommand("Select * from [Sheet1$]", con);
+            OleDbDataReader myReader;
+            con.Open();
+            myReader = cmd.ExecuteReader();
+
+            // Create Data Table to store data from Excel file
+            // TODO: This should happen after new us HAS been found
+            // TODO: This data should be created based off a report, and linking to the Customer Table in the DB
+            DataTable prescriptions = new DataTable();
+            prescriptions.Columns.Add("CustomerID"); prescriptions.Columns.Add("MedicineBatchID");
+
+            while (myReader.Read())
+            {
+                // EXCEL FILE LAYOUT
+                // 0            1
+                // CustomerID   MedicineBatchID
+
+                // Add customer from Excel file to Data Table
+                
+                Model.Perscription prescip = new Model.Perscription(Int32.Parse(myReader.GetString(0)), Int32.Parse(myReader.GetString(1)));
+                prescriptions.Rows.Add(prescip.CustomerID, prescip.MedicineID);
+            }
+            con.Close();
+
+            if (prescriptions.Rows.Count > 0)
+            {
+                try
+                {
+                    InsertIntoDatabasePrescription(prescriptions);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("There was an error saving to the database.");
+                    throw;
+                }
+                // TODO: if there is an error, success message still displays
+                MessageBox.Show(prescriptions.Rows.Count.ToString() + "customers were added to the database.");
+            }
+        }
+
+        private void InsertIntoDatabasePrescription(DataTable prescriptions)
+        {
+            // TODO: Refactor into a single function: Shared in HARDCODE region
+            string fileName = @"|DataDirectory|\WarehouseDatabase.accdb";
+            OleDbConnection con = new OleDbConnection(string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0; Data Source = {0}; Persist Security Info = True;", fileName));
+            OleDbCommand cmd = new OleDbCommand("INSERT INTO tblPrescriptions(CustomerID, MedicineBatchID) VALUES(@CID, @MBID)", con);
+            con.Open();
+
+            foreach (DataRow dr in prescriptions.Rows)
+            {
+                cmd.Parameters.AddWithValue("@CID", dr["CustomerID"]);
+                cmd.Parameters.AddWithValue("@MBID", dr["MedicineBatchID"]);
+
+                cmd.ExecuteNonQuery();
+            }
+            con.Close();
+        }
 
         #endregion
 
@@ -267,6 +335,7 @@ namespace CVGreenWare
 
         private void CheckForNewExcelUsers()
         {
+            // TODO: Refactor into a single function: Shared in PRESCRIPION region
             string fileName = @"|DataDirectory|\Excel Docs\Patient.xlsx";
             OleDbConnection con = new OleDbConnection(string.Format(@"Provider= Microsoft.ACE.OLEDB.12.0;Data Source={0}; Extended Properties = 'Excel 12.0 Xml;HDR=NO';", fileName));
             OleDbCommand cmd = new OleDbCommand("Select * from [Sheet1$]", con);
@@ -312,6 +381,7 @@ namespace CVGreenWare
         
         private void InsertIntoDatabase(DataTable customers)
         {
+            // TODO: Refactor into a single function: Shared in PRESCRIPTION region
             string fileName = @"|DataDirectory|\WarehouseDatabase.accdb";
             OleDbConnection con = new OleDbConnection(string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0; Data Source = {0}; Persist Security Info = True;", fileName));
             OleDbCommand cmd = new OleDbCommand("INSERT INTO tblCustomer(FirstName, LastName, Age, Insurance, LastVisit, Email) VALUES(@FN, @LN, @A, @I, @LV, @E)", con);

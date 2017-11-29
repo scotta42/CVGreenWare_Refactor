@@ -34,18 +34,18 @@
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.button2 = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.label6 = new System.Windows.Forms.Label();
-            this.ClientFName = new System.Windows.Forms.TextBox();
-            this.ClientLName = new System.Windows.Forms.TextBox();
-            this.ClientEmail = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.ClientAge = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.ClientInsurance = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.ClientInsurance = new System.Windows.Forms.TextBox();
+            this.ClientAge = new System.Windows.Forms.TextBox();
+            this.ClientEmail = new System.Windows.Forms.TextBox();
+            this.ClientLName = new System.Windows.Forms.TextBox();
+            this.ClientFName = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -53,28 +53,27 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
-            this.OpenFile = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textFileName = new System.Windows.Forms.TextBox();
-            this.ButtonReadExcel = new System.Windows.Forms.Button();
-            this.dgInventory = new System.Windows.Forms.DataGridView();
-            this.tblInventoryDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonExport = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.buttonInventory = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.buttonExport = new System.Windows.Forms.Button();
+            this.tblInventoryDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgInventory = new System.Windows.Forms.DataGridView();
+            this.ButtonReadExcel = new System.Windows.Forms.Button();
+            this.textFileName = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.OpenFile = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.prescriptionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,6 +92,7 @@
             this.tblInventoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblCustomerTableAdapter = new CVGreenWare.WarehouseDatabaseDataSetTableAdapters.tblCustomerTableAdapter();
             this.tblPrescriptionsTableAdapter = new CVGreenWare.WarehouseDatabaseDataSetTableAdapters.tblPrescriptionsTableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dsInventory)).BeginInit();
             this.tabPage8.SuspendLayout();
             this.tabPage6.SuspendLayout();
@@ -102,8 +102,8 @@
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblInventoryDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgInventory)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblPrescriptionsBindingSource)).BeginInit();
@@ -167,28 +167,31 @@
             this.tabPage6.Text = "Client Use";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // label6
+            // button3
             // 
-            this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(100, 23);
-            this.label6.TabIndex = 0;
+            this.button3.Location = new System.Drawing.Point(88, 165);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "Submit";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // ClientFName
+            // ClientInsurance
             // 
-            this.ClientFName.Location = new System.Drawing.Point(88, 32);
-            this.ClientFName.Name = "ClientFName";
-            this.ClientFName.Size = new System.Drawing.Size(100, 20);
-            this.ClientFName.TabIndex = 1;
-            this.ClientFName.Text = "default";
+            this.ClientInsurance.Location = new System.Drawing.Point(88, 139);
+            this.ClientInsurance.Name = "ClientInsurance";
+            this.ClientInsurance.Size = new System.Drawing.Size(100, 20);
+            this.ClientInsurance.TabIndex = 10;
+            this.ClientInsurance.Text = "default";
             // 
-            // ClientLName
+            // ClientAge
             // 
-            this.ClientLName.Location = new System.Drawing.Point(88, 61);
-            this.ClientLName.Name = "ClientLName";
-            this.ClientLName.Size = new System.Drawing.Size(100, 20);
-            this.ClientLName.TabIndex = 2;
-            this.ClientLName.Text = "default";
+            this.ClientAge.Location = new System.Drawing.Point(88, 113);
+            this.ClientAge.Name = "ClientAge";
+            this.ClientAge.Size = new System.Drawing.Size(100, 20);
+            this.ClientAge.TabIndex = 8;
+            this.ClientAge.Text = "178";
             // 
             // ClientEmail
             // 
@@ -198,49 +201,21 @@
             this.ClientEmail.TabIndex = 3;
             this.ClientEmail.Text = "default.com";
             // 
-            // label16
+            // ClientLName
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(25, 35);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(57, 13);
-            this.label16.TabIndex = 4;
-            this.label16.Text = "First Name";
+            this.ClientLName.Location = new System.Drawing.Point(88, 61);
+            this.ClientLName.Name = "ClientLName";
+            this.ClientLName.Size = new System.Drawing.Size(100, 20);
+            this.ClientLName.TabIndex = 2;
+            this.ClientLName.Text = "default";
             // 
-            // label17
+            // ClientFName
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(24, 64);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(58, 13);
-            this.label17.TabIndex = 5;
-            this.label17.Text = "Last Name";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(50, 90);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(32, 13);
-            this.label18.TabIndex = 6;
-            this.label18.Text = "Email";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(56, 116);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(26, 13);
-            this.label19.TabIndex = 7;
-            this.label19.Text = "Age";
-            // 
-            // ClientAge
-            // 
-            this.ClientAge.Location = new System.Drawing.Point(88, 113);
-            this.ClientAge.Name = "ClientAge";
-            this.ClientAge.Size = new System.Drawing.Size(100, 20);
-            this.ClientAge.TabIndex = 8;
-            this.ClientAge.Text = "178";
+            this.ClientFName.Location = new System.Drawing.Point(88, 32);
+            this.ClientFName.Name = "ClientFName";
+            this.ClientFName.Size = new System.Drawing.Size(100, 20);
+            this.ClientFName.TabIndex = 1;
+            this.ClientFName.Text = "default";
             // 
             // label20
             // 
@@ -251,23 +226,48 @@
             this.label20.TabIndex = 9;
             this.label20.Text = "Insurance";
             // 
-            // ClientInsurance
+            // label19
             // 
-            this.ClientInsurance.Location = new System.Drawing.Point(88, 139);
-            this.ClientInsurance.Name = "ClientInsurance";
-            this.ClientInsurance.Size = new System.Drawing.Size(100, 20);
-            this.ClientInsurance.TabIndex = 10;
-            this.ClientInsurance.Text = "default";
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(56, 116);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(26, 13);
+            this.label19.TabIndex = 7;
+            this.label19.Text = "Age";
             // 
-            // button3
+            // label18
             // 
-            this.button3.Location = new System.Drawing.Point(88, 165);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Submit";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(50, 90);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(32, 13);
+            this.label18.TabIndex = 6;
+            this.label18.Text = "Email";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(24, 64);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(58, 13);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "Last Name";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(25, 35);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(57, 13);
+            this.label16.TabIndex = 4;
+            this.label16.Text = "First Name";
+            // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(0, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(100, 23);
+            this.label6.TabIndex = 0;
             // 
             // tabPage5
             // 
@@ -367,56 +367,98 @@
             this.tabPage2.Text = "Warehouse";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // buttonInventory
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(231, 110);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Open Excel File below";
+            this.buttonInventory.BackColor = System.Drawing.Color.Cyan;
+            this.buttonInventory.Location = new System.Drawing.Point(179, 367);
+            this.buttonInventory.Name = "buttonInventory";
+            this.buttonInventory.Size = new System.Drawing.Size(239, 70);
+            this.buttonInventory.TabIndex = 16;
+            this.buttonInventory.Text = "View Current Inventory";
+            this.buttonInventory.UseVisualStyleBackColor = false;
+            this.buttonInventory.Click += new System.EventHandler(this.buttonInventory_Click);
             // 
-            // OpenFile
+            // label15
             // 
-            this.OpenFile.Location = new System.Drawing.Point(179, 197);
-            this.OpenFile.Name = "OpenFile";
-            this.OpenFile.Size = new System.Drawing.Size(104, 23);
-            this.OpenFile.TabIndex = 2;
-            this.OpenFile.Text = "Open File";
-            this.OpenFile.UseVisualStyleBackColor = true;
-            this.OpenFile.Click += new System.EventHandler(this.OpenFile_Click);
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(750, 16);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(264, 13);
+            this.label15.TabIndex = 15;
+            this.label15.Text = "Edit any errors in within Window A before hitting Export";
             // 
-            // textBox1
+            // label14
             // 
-            this.textBox1.Location = new System.Drawing.Point(318, 199);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(695, 440);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(389, 13);
+            this.label14.TabIndex = 14;
+            this.label14.Text = "for project purpose only stored in \'bin > debug > WarehouseDatabase\' temporarily";
             // 
-            // textFileName
+            // label13
             // 
-            this.textFileName.Location = new System.Drawing.Point(179, 248);
-            this.textFileName.Name = "textFileName";
-            this.textFileName.Size = new System.Drawing.Size(239, 20);
-            this.textFileName.TabIndex = 4;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(726, 193);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(276, 13);
+            this.label13.TabIndex = 13;
+            this.label13.Text = "When all Excel data is gathered click Export to Database";
             // 
-            // ButtonReadExcel
+            // label12
             // 
-            this.ButtonReadExcel.Location = new System.Drawing.Point(179, 303);
-            this.ButtonReadExcel.Name = "ButtonReadExcel";
-            this.ButtonReadExcel.Size = new System.Drawing.Size(239, 23);
-            this.ButtonReadExcel.TabIndex = 5;
-            this.ButtonReadExcel.Text = "Read Excel Sheet";
-            this.ButtonReadExcel.UseVisualStyleBackColor = true;
-            this.ButtonReadExcel.Click += new System.EventHandler(this.ButtonReadExcel_Click);
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(695, 241);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(56, 13);
+            this.label12.TabIndex = 12;
+            this.label12.Text = "Window B";
             // 
-            // dgInventory
+            // label11
             // 
-            this.dgInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgInventory.Location = new System.Drawing.Point(689, 55);
-            this.dgInventory.Name = "dgInventory";
-            this.dgInventory.Size = new System.Drawing.Size(373, 129);
-            this.dgInventory.TabIndex = 6;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(695, 39);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(56, 13);
+            this.label11.TabIndex = 11;
+            this.label11.Text = "Window A";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(171, 171);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(284, 13);
+            this.label10.TabIndex = 10;
+            this.label10.Text = "Read Excel Sheet again until all files imported in window A.";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(171, 152);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(289, 13);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "after clicking Read Excel Sheet open the new file and click ";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(171, 133);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(276, 13);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "Click Read Excel Sheet to read file. If more than one file, ";
+            // 
+            // buttonExport
+            // 
+            this.buttonExport.Location = new System.Drawing.Point(796, 209);
+            this.buttonExport.Name = "buttonExport";
+            this.buttonExport.Size = new System.Drawing.Size(170, 23);
+            this.buttonExport.TabIndex = 7;
+            this.buttonExport.Text = "Export to Database";
+            this.buttonExport.UseVisualStyleBackColor = true;
+            this.buttonExport.Click += new System.EventHandler(this.buttonExport_Click);
             // 
             // tblInventoryDataGridView
             // 
@@ -430,11 +472,11 @@
             this.tblInventoryDataGridView.Size = new System.Drawing.Size(373, 171);
             this.tblInventoryDataGridView.TabIndex = 6;
             // 
-            // dataGridViewTextBoxColumn3
+            // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Expiration";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Expiration";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Warehouse ID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Warehouse ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -442,108 +484,66 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Medicine Name";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
-            // dataGridViewTextBoxColumn1
+            // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Warehouse ID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Warehouse ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Expiration";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Expiration";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
-            // buttonExport
+            // dgInventory
             // 
-            this.buttonExport.Location = new System.Drawing.Point(796, 209);
-            this.buttonExport.Name = "buttonExport";
-            this.buttonExport.Size = new System.Drawing.Size(170, 23);
-            this.buttonExport.TabIndex = 7;
-            this.buttonExport.Text = "Export to Database";
-            this.buttonExport.UseVisualStyleBackColor = true;
-            this.buttonExport.Click += new System.EventHandler(this.buttonExport_Click);
+            this.dgInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgInventory.Location = new System.Drawing.Point(689, 55);
+            this.dgInventory.Name = "dgInventory";
+            this.dgInventory.Size = new System.Drawing.Size(373, 129);
+            this.dgInventory.TabIndex = 6;
             // 
-            // label8
+            // ButtonReadExcel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(171, 133);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(276, 13);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "Click Read Excel Sheet to read file. If more than one file, ";
+            this.ButtonReadExcel.Location = new System.Drawing.Point(179, 303);
+            this.ButtonReadExcel.Name = "ButtonReadExcel";
+            this.ButtonReadExcel.Size = new System.Drawing.Size(239, 23);
+            this.ButtonReadExcel.TabIndex = 5;
+            this.ButtonReadExcel.Text = "Read Excel Sheet";
+            this.ButtonReadExcel.UseVisualStyleBackColor = true;
+            this.ButtonReadExcel.Click += new System.EventHandler(this.ButtonReadExcel_Click);
             // 
-            // label9
+            // textFileName
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(171, 152);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(289, 13);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "after clicking Read Excel Sheet open the new file and click ";
+            this.textFileName.Location = new System.Drawing.Point(179, 248);
+            this.textFileName.Name = "textFileName";
+            this.textFileName.Size = new System.Drawing.Size(239, 20);
+            this.textFileName.TabIndex = 4;
             // 
-            // label10
+            // textBox1
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(171, 171);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(284, 13);
-            this.label10.TabIndex = 10;
-            this.label10.Text = "Read Excel Sheet again until all files imported in window A.";
+            this.textBox1.Location = new System.Drawing.Point(318, 199);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 3;
             // 
-            // label11
+            // OpenFile
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(695, 39);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(56, 13);
-            this.label11.TabIndex = 11;
-            this.label11.Text = "Window A";
+            this.OpenFile.Location = new System.Drawing.Point(179, 197);
+            this.OpenFile.Name = "OpenFile";
+            this.OpenFile.Size = new System.Drawing.Size(104, 23);
+            this.OpenFile.TabIndex = 2;
+            this.OpenFile.Text = "Open File";
+            this.OpenFile.UseVisualStyleBackColor = true;
+            this.OpenFile.Click += new System.EventHandler(this.OpenFile_Click);
             // 
-            // label12
+            // label2
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(695, 241);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(56, 13);
-            this.label12.TabIndex = 12;
-            this.label12.Text = "Window B";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(726, 193);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(276, 13);
-            this.label13.TabIndex = 13;
-            this.label13.Text = "When all Excel data is gathered click Export to Database";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(695, 440);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(389, 13);
-            this.label14.TabIndex = 14;
-            this.label14.Text = "for project purpose only stored in \'bin > debug > WarehouseDatabase\' temporarily";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(750, 16);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(264, 13);
-            this.label15.TabIndex = 15;
-            this.label15.Text = "Edit any errors in within Window A before hitting Export";
-            // 
-            // buttonInventory
-            // 
-            this.buttonInventory.BackColor = System.Drawing.Color.Cyan;
-            this.buttonInventory.Location = new System.Drawing.Point(179, 367);
-            this.buttonInventory.Name = "buttonInventory";
-            this.buttonInventory.Size = new System.Drawing.Size(239, 70);
-            this.buttonInventory.TabIndex = 16;
-            this.buttonInventory.Text = "View Current Inventory";
-            this.buttonInventory.UseVisualStyleBackColor = false;
-            this.buttonInventory.Click += new System.EventHandler(this.buttonInventory_Click);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(231, 110);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(112, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Open Excel File below";
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -551,15 +551,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Pharmacy";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(264, 126);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Pharmacy stuff here";
             // 
             // tabControl1
             // 
@@ -673,6 +664,16 @@
             // 
             this.tblPrescriptionsTableAdapter.ClearBeforeFill = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(18, 20);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(164, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Check for New Prescriptions";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -695,10 +696,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgInventory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblInventoryDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgInventory)).EndInit();
             this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tblPrescriptionsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.warehouseDatabaseDataSet)).EndInit();
@@ -771,8 +771,8 @@
         private System.Windows.Forms.Button OpenFile;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

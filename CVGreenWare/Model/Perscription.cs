@@ -8,19 +8,30 @@ namespace CVGreenWare.Model
 {
     class Perscription
     {
-        private Customer _customer;
-        private Medicine medicine;
+        private int _customerID;
+        private int _medicineID;
 
-        public Medicine Medicine
+        public Perscription()
         {
-            get { return medicine; }
-            set { medicine = value; }
+
         }
 
-        public Customer Customer
+        public Perscription(int cust, int med)
         {
-            get { return _customer; }
-            set { _customer = value; }
+            _customerID = cust;
+            _medicineID = med;
+        }
+
+        public int MedicineID
+        {
+            get { return _medicineID; }
+            set { _medicineID = value; }
+        }
+
+        public int CustomerID
+        {
+            get { return _customerID; }
+            set { _customerID = value; }
         }
 
     }
