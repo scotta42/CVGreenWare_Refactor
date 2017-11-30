@@ -20,12 +20,14 @@ namespace CVGreenWare
         public Form1()
         {
             InitializeComponent();
+            PrescriptionJoinTableHandler();
         }
 
         public Form1(int I)
         {
             InitializeComponent();
             HideTabs(I);
+            PrescriptionJoinTableHandler();
         }
 
         private void tblInventoryBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -209,6 +211,11 @@ namespace CVGreenWare
             CheckForNewExcelPrescription();
         }
 
+        private void PrescriptionJoinTableHandler()
+        {
+            dataGridView3.DataSource = tblPrescriptionsTableAdapter.GetPrescriptionFull();
+        }
+
         private void CheckForNewExcelPrescription()
         {
             // TODO: Refactor into a single function: Shared in HARDCODE region
@@ -272,6 +279,18 @@ namespace CVGreenWare
             con.Close();
         }
 
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // If not button cell : Exit
+            if (e.RowIndex != 4)
+            {
+                return;
+            }
+            else
+            {
+                // Open edit Prescription Form
+            }
+        }
         #endregion
 
         #region Point Of Sale
@@ -401,5 +420,6 @@ namespace CVGreenWare
             con.Close();
         }
         #endregion
+
     }
 }

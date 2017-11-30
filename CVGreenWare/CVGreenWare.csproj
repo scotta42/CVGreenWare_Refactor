@@ -118,6 +118,9 @@
     <Compile Include="Model\Warehouse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WarehouseDatabaseDataSet.cs">
+      <DependentUpon>WarehouseDatabaseDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="WarehouseDatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

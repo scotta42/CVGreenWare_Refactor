@@ -51,7 +51,6 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.buttonInventory = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
@@ -74,10 +73,9 @@
             this.OpenFile = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.prescriptionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medicineBatchIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.tblPrescriptionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.warehouseDatabaseDataSet = new CVGreenWare.WarehouseDatabaseDataSet();
             this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,7 +90,7 @@
             this.tblInventoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblCustomerTableAdapter = new CVGreenWare.WarehouseDatabaseDataSetTableAdapters.tblCustomerTableAdapter();
             this.tblPrescriptionsTableAdapter = new CVGreenWare.WarehouseDatabaseDataSetTableAdapters.tblPrescriptionsTableAdapter();
-            this.button1 = new System.Windows.Forms.Button();
+            this.EditColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dsInventory)).BeginInit();
             this.tabPage8.SuspendLayout();
             this.tabPage6.SuspendLayout();
@@ -100,12 +98,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblInventoryDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgInventory)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblPrescriptionsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.warehouseDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblCustomerBindingSource)).BeginInit();
@@ -317,27 +315,13 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.dataGridView2);
+            this.tabPage3.Controls.Add(this.dataGridView3);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(1108, 483);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Perscription";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.prescriptionIDDataGridViewTextBoxColumn,
-            this.customerIDDataGridViewTextBoxColumn1,
-            this.medicineBatchIDDataGridViewTextBoxColumn});
-            this.dataGridView2.DataSource = this.tblPrescriptionsBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(40, 35);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(674, 197);
-            this.dataGridView2.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -552,6 +536,16 @@
             this.tabPage1.Text = "Pharmacy";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(18, 20);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(164, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Check for New Prescriptions";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -567,23 +561,15 @@
             this.tabControl1.Size = new System.Drawing.Size(1116, 509);
             this.tabControl1.TabIndex = 0;
             // 
-            // prescriptionIDDataGridViewTextBoxColumn
+            // dataGridView3
             // 
-            this.prescriptionIDDataGridViewTextBoxColumn.DataPropertyName = "PrescriptionID";
-            this.prescriptionIDDataGridViewTextBoxColumn.HeaderText = "PrescriptionID";
-            this.prescriptionIDDataGridViewTextBoxColumn.Name = "prescriptionIDDataGridViewTextBoxColumn";
-            // 
-            // customerIDDataGridViewTextBoxColumn1
-            // 
-            this.customerIDDataGridViewTextBoxColumn1.DataPropertyName = "CustomerID";
-            this.customerIDDataGridViewTextBoxColumn1.HeaderText = "CustomerID";
-            this.customerIDDataGridViewTextBoxColumn1.Name = "customerIDDataGridViewTextBoxColumn1";
-            // 
-            // medicineBatchIDDataGridViewTextBoxColumn
-            // 
-            this.medicineBatchIDDataGridViewTextBoxColumn.DataPropertyName = "MedicineBatchID";
-            this.medicineBatchIDDataGridViewTextBoxColumn.HeaderText = "MedicineBatchID";
-            this.medicineBatchIDDataGridViewTextBoxColumn.Name = "medicineBatchIDDataGridViewTextBoxColumn";
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.EditColumn});
+            this.dataGridView3.Location = new System.Drawing.Point(34, 21);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(848, 332);
+            this.dataGridView3.TabIndex = 1;
             // 
             // tblPrescriptionsBindingSource
             // 
@@ -664,15 +650,11 @@
             // 
             this.tblPrescriptionsTableAdapter.ClearBeforeFill = true;
             // 
-            // button1
+            // EditColumn
             // 
-            this.button1.Location = new System.Drawing.Point(18, 20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(164, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Check for New Prescriptions";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.EditColumn.DataPropertyName = "EditText";
+            this.EditColumn.HeaderText = "";
+            this.EditColumn.Name = "EditColumn";
             // 
             // Form1
             // 
@@ -693,13 +675,13 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblInventoryDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgInventory)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblPrescriptionsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.warehouseDatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblCustomerBindingSource)).EndInit();
@@ -745,10 +727,6 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prescriptionIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerIDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn medicineBatchIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button buttonInventory;
         private System.Windows.Forms.Label label15;
@@ -773,6 +751,8 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridViewButtonColumn EditColumn;
     }
 }
 
