@@ -205,7 +205,7 @@ namespace CVGreenWare
         /// <summary>
         /// This region is for Pharmacist users for accessing prescription functionallity
         /// </summary>
-        
+
         private void button1_Click(object sender, EventArgs e)
         {
             CheckForNewExcelPrescription();
@@ -213,7 +213,7 @@ namespace CVGreenWare
 
         private void PrescriptionJoinTableHandler()
         {
-            dataGridView3.DataSource = tblPrescriptionsTableAdapter.GetPrescriptionFull();
+            DGPrescription.DataSource = tblPrescriptionsTableAdapter.GetPrescriptionFull();
         }
 
         private void CheckForNewExcelPrescription()
@@ -239,7 +239,7 @@ namespace CVGreenWare
                 // CustomerID   MedicineBatchID
 
                 // Add customer from Excel file to Data Table
-                
+
                 Model.Perscription prescip = new Model.Perscription(Int32.Parse(myReader.GetString(0)), Int32.Parse(myReader.GetString(1)));
                 prescriptions.Rows.Add(prescip.CustomerID, prescip.MedicineID);
             }
@@ -279,16 +279,19 @@ namespace CVGreenWare
             con.Close();
         }
 
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // If not button cell : Exit
-            if (e.RowIndex != 4)
+            // TODO: Switch up hard coded value for checking what column is checked
+            if (e.ColumnIndex == 3)
+            // Open edit Prescription Form
             {
-                return;
+                Prescription prescrip = new Prescription();
+                prescrip.Show();
             }
             else
+            // If not button cell : Exit
             {
-                // Open edit Prescription Form
+                return;
             }
         }
         #endregion
@@ -397,7 +400,7 @@ namespace CVGreenWare
                 MessageBox.Show(customers.Rows.Count.ToString() + "customers were added to the database.");
             }
         }
-        
+
         private void InsertIntoDatabase(DataTable customers)
         {
             // TODO: Refactor into a single function: Shared in PRESCRIPTION region
@@ -420,6 +423,5 @@ namespace CVGreenWare
             con.Close();
         }
         #endregion
-
     }
 }
