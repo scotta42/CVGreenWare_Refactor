@@ -23,11 +23,22 @@ namespace CVGreenWare
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (isFormValid())
-            {
-                CreateNewUser();
+            //admin key now required and textbox will display if all fields are not filled in
+                if (isFormValid())
+                {
+                    if (txtAdmin.Text == "Genesis")
+                    {
+                    CreateNewUser();
+                    this.Close();
+                    }else
+                     {
+                    MessageBox.Show("Admin Key Invalid");
+                }
+
+                 }else
+                     {
+                MessageBox.Show("Please fill in all fields before submitting");
             }
-            this.Close();
         }
 
         private void CreateNewUser()
