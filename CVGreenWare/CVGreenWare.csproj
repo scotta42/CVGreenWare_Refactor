@@ -160,6 +160,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Content Include="Excel Docs\Patient.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -207,6 +208,7 @@
     <Content Include="Excel Docs\PharmacyInventory-CSV.txt" />
     <Content Include="Excel Docs\Uers-CSV.txt" />
     <Content Include="Excel Docs\WarehouseInventory-CSV.txt" />
+    <None Include="Resources\Login_Background.png" />
     <Content Include="WarehouseDatabase.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
