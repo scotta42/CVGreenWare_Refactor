@@ -1,6 +1,6 @@
 ﻿namespace CVGreenWare
 {
-    partial class Prescription
+    partial class PrescriptionForm
     {
         /// <summary>
         /// Required designer variable.
@@ -36,12 +36,14 @@
             this.MedicineID = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.QTY)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(69, 119);
+            this.button1.Location = new System.Drawing.Point(83, 132);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -51,7 +53,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(169, 119);
+            this.button2.Location = new System.Drawing.Point(183, 132);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 1;
@@ -61,10 +63,11 @@
             // 
             // QTY
             // 
-            this.QTY.Location = new System.Drawing.Point(124, 79);
+            this.QTY.Location = new System.Drawing.Point(126, 106);
             this.QTY.Name = "QTY";
             this.QTY.Size = new System.Drawing.Size(120, 20);
             this.QTY.TabIndex = 3;
+            this.QTY.ValueChanged += new System.EventHandler(this.QTY_ValueChanged);
             // 
             // label1
             // 
@@ -78,7 +81,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(73, 81);
+            this.label2.Location = new System.Drawing.Point(75, 108);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 5;
@@ -100,6 +103,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 10;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // comboBox2
             // 
@@ -108,12 +112,33 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 11;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
-            // Prescription
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(124, 79);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(121, 21);
+            this.comboBox3.TabIndex = 13;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(37, 82);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Medicine Batch";
+            // 
+            // PrescriptionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(326, 172);
+            this.ClientSize = new System.Drawing.Size(326, 171);
+            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.MedicineID);
@@ -122,7 +147,7 @@
             this.Controls.Add(this.QTY);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Name = "Prescription";
+            this.Name = "PrescriptionForm";
             this.Text = "Prescription";
             ((System.ComponentModel.ISupportInitialize)(this.QTY)).EndInit();
             this.ResumeLayout(false);
@@ -140,5 +165,7 @@
         private System.Windows.Forms.Label MedicineID;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label3;
     }
 }

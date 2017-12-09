@@ -285,7 +285,7 @@ namespace CVGreenWare
             if (e.ColumnIndex == 3)
             // Open edit Prescription Form
             {
-                Prescription prescrip = new Prescription();
+                PrescriptionForm prescrip = new PrescriptionForm();
                 prescrip.Show();
             }
             else
