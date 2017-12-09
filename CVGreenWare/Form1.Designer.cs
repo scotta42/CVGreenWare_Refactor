@@ -49,7 +49,6 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.label4 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.DGPrescription = new System.Windows.Forms.DataGridView();
             this.EditColumn = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -77,6 +76,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.DGOrder = new System.Windows.Forms.DataGridView();
             this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.insuranceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,6 +91,7 @@
             this.tblInventoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblCustomerTableAdapter = new CVGreenWare.WarehouseDatabaseDataSetTableAdapters.tblCustomerTableAdapter();
             this.tblPrescriptionsTableAdapter = new CVGreenWare.WarehouseDatabaseDataSetTableAdapters.tblPrescriptionsTableAdapter();
+            this.Open = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dsInventory)).BeginInit();
             this.tabPage8.SuspendLayout();
             this.tabPage6.SuspendLayout();
@@ -104,6 +105,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgInventory)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblCustomerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.warehouseDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblPrescriptionsBindingSource)).BeginInit();
@@ -296,22 +298,13 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.label4);
+            this.tabPage4.Controls.Add(this.DGOrder);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(1108, 483);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Register";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(342, 369);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 13);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "P.O.S. stuff here";
             // 
             // tabPage3
             // 
@@ -578,6 +571,17 @@
             this.tabControl1.Size = new System.Drawing.Size(1116, 509);
             this.tabControl1.TabIndex = 0;
             // 
+            // DGOrder
+            // 
+            this.DGOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Open});
+            this.DGOrder.Location = new System.Drawing.Point(34, 24);
+            this.DGOrder.Name = "DGOrder";
+            this.DGOrder.Size = new System.Drawing.Size(1034, 424);
+            this.DGOrder.TabIndex = 0;
+            this.DGOrder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGOrder_CellContentClick);
+            // 
             // customerIDDataGridViewTextBoxColumn
             // 
             this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
@@ -658,6 +662,11 @@
             // 
             this.tblPrescriptionsTableAdapter.ClearBeforeFill = true;
             // 
+            // Open
+            // 
+            this.Open.HeaderText = "Open Order";
+            this.Open.Name = "Open";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -675,7 +684,6 @@
             this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGPrescription)).EndInit();
             this.tabPage2.ResumeLayout(false);
@@ -684,6 +692,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgInventory)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DGOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblCustomerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.warehouseDatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblPrescriptionsBindingSource)).EndInit();
@@ -727,7 +736,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button buttonInventory;
@@ -755,6 +763,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView DGPrescription;
         private System.Windows.Forms.DataGridViewButtonColumn EditColumn;
+        private System.Windows.Forms.DataGridView DGOrder;
+        private System.Windows.Forms.DataGridViewButtonColumn Open;
     }
 }
 

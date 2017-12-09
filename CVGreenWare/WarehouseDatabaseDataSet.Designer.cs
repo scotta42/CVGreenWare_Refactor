@@ -6055,7 +6055,7 @@ namespace CVGreenWare.WarehouseDatabaseDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[2];
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[3];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT PrescriptionID, CustomerID, MedicineBatchID, MedicineAmount, Status FROM t" +
@@ -6069,6 +6069,12 @@ FROM            (((tblPrescriptions INNER JOIN
                          tblMedicineBatch ON tblPrescriptions.MedicineBatchID = tblMedicineBatch.MedicineBatchID) INNER JOIN
                          tblMedicine ON tblMedicineBatch.MedicineID = tblMedicine.MedicineID)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT tblCustomer.FirstName, tblCustomer.LastName, PrescriptionID, tblCustomer.I" +
+                "nsurance\r\nFROM tblPrescriptions\r\nINNER JOIN tblCustomer ON tblPrescriptions.Cust" +
+                "omerID=tblCustomer.CustomerID";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6114,6 +6120,17 @@ FROM            (((tblPrescriptions INNER JOIN
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual WarehouseDatabaseDataSet.tblPrescriptionsDataTable GetPrescriptionFull() {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            WarehouseDatabaseDataSet.tblPrescriptionsDataTable dataTable = new WarehouseDatabaseDataSet.tblPrescriptionsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual WarehouseDatabaseDataSet.tblPrescriptionsDataTable GetPrescriptionORDER() {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             WarehouseDatabaseDataSet.tblPrescriptionsDataTable dataTable = new WarehouseDatabaseDataSet.tblPrescriptionsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

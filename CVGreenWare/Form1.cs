@@ -20,14 +20,21 @@ namespace CVGreenWare
         public Form1()
         {
             InitializeComponent();
+
+            // Procedurally adds the correct columns and data to the respective DataGridViews
             PrescriptionJoinTableHandler();
+            OrderJoinTableHandler();
         }
 
         public Form1(int I)
         {
             InitializeComponent();
-            HideTabs(I);
+
+            // Procedurally adds the correct columns and data to the respective DataGridViews
             PrescriptionJoinTableHandler();
+            OrderJoinTableHandler();
+
+            HideTabs(I);
         }
 
         private void tblInventoryBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -214,6 +221,9 @@ namespace CVGreenWare
         private void PrescriptionJoinTableHandler()
         {
             DGPrescription.DataSource = tblPrescriptionsTableAdapter.GetPrescriptionFull();
+            DGPrescription.Columns["CustomerID"].Visible = false;
+            DGPrescription.Columns["MedicineBatchID"].Visible = false;
+            DGPrescription.Columns["MedicineAmount"].Visible = false;
         }
 
         private void CheckForNewExcelPrescription()
@@ -302,6 +312,30 @@ namespace CVGreenWare
         /// <summary>
         /// This region is for Point of Sale functionality to be accessed by the Administrator users.
         /// </summary>
+        private void OrderJoinTableHandler()
+        {
+            DGOrder.DataSource = tblPrescriptionsTableAdapter.GetPrescriptionORDER();
+            DGOrder.Columns["CustomerID"].Visible = false;
+            DGOrder.Columns["MedicineBatchID"].Visible = false;
+            DGOrder.Columns["MedicineAmount"].Visible = false;
+            DGOrder.Columns["Status"].Visible = false;
+            DGOrder.Columns["EditText"].Visible = false;
+        }
+
+        private void DGOrder_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                // Opens the form with a selected Order
+                int i = Int32.Parse(DGOrder.Rows[e.RowIndex].Cells[1].Value.ToString());
+                Payment payForm = new Payment(i, DGOrder.Rows[e.RowIndex].Cells[7].Value.ToString(), DGOrder.Rows[e.RowIndex].Cells[8].Value.ToString(), DGOrder.Rows[e.RowIndex].Cells[9].Value.ToString());
+                payForm.Show();
+            }
+            else
+            {
+                return;
+            }
+        }
 
         #endregion
 
