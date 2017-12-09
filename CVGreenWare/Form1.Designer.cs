@@ -48,14 +48,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.insuranceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tblCustomerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.warehouseDatabaseDataSet = new CVGreenWare.WarehouseDatabaseDataSet();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -85,6 +77,14 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.insuranceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tblCustomerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.warehouseDatabaseDataSet = new CVGreenWare.WarehouseDatabaseDataSet();
             this.tblPrescriptionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableAdapterManager = new CVGreenWare.WarehouseDatabaseDataSetTableAdapters.TableAdapterManager();
             this.tblInventoryTableAdapter = new CVGreenWare.WarehouseDatabaseDataSetTableAdapters.tblInventoryTableAdapter();
@@ -96,8 +96,6 @@
             this.tabPage6.SuspendLayout();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblCustomerBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warehouseDatabaseDataSet)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGPrescription)).BeginInit();
@@ -106,6 +104,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgInventory)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tblCustomerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.warehouseDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblPrescriptionsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblInventoryBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -294,52 +294,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1049, 423);
             this.dataGridView1.TabIndex = 0;
             // 
-            // customerIDDataGridViewTextBoxColumn
-            // 
-            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
-            this.customerIDDataGridViewTextBoxColumn.HeaderText = "CustomerID";
-            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
-            // 
-            // ageDataGridViewTextBoxColumn
-            // 
-            this.ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
-            this.ageDataGridViewTextBoxColumn.HeaderText = "Age";
-            this.ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
-            // 
-            // insuranceDataGridViewTextBoxColumn
-            // 
-            this.insuranceDataGridViewTextBoxColumn.DataPropertyName = "Insurance";
-            this.insuranceDataGridViewTextBoxColumn.HeaderText = "Insurance";
-            this.insuranceDataGridViewTextBoxColumn.Name = "insuranceDataGridViewTextBoxColumn";
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            // 
-            // tblCustomerBindingSource
-            // 
-            this.tblCustomerBindingSource.DataMember = "tblCustomer";
-            this.tblCustomerBindingSource.DataSource = this.warehouseDatabaseDataSet;
-            // 
-            // warehouseDatabaseDataSet
-            // 
-            this.warehouseDatabaseDataSet.DataSetName = "WarehouseDatabaseDataSet";
-            this.warehouseDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.label4);
@@ -374,9 +328,9 @@
             this.DGPrescription.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGPrescription.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.EditColumn});
-            this.DGPrescription.Location = new System.Drawing.Point(34, 21);
+            this.DGPrescription.Location = new System.Drawing.Point(22, 21);
             this.DGPrescription.Name = "DGPrescription";
-            this.DGPrescription.Size = new System.Drawing.Size(848, 332);
+            this.DGPrescription.Size = new System.Drawing.Size(1068, 445);
             this.DGPrescription.TabIndex = 1;
             this.DGPrescription.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
             // 
@@ -624,6 +578,52 @@
             this.tabControl1.Size = new System.Drawing.Size(1116, 509);
             this.tabControl1.TabIndex = 0;
             // 
+            // customerIDDataGridViewTextBoxColumn
+            // 
+            this.customerIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.HeaderText = "CustomerID";
+            this.customerIDDataGridViewTextBoxColumn.Name = "customerIDDataGridViewTextBoxColumn";
+            // 
+            // ageDataGridViewTextBoxColumn
+            // 
+            this.ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
+            this.ageDataGridViewTextBoxColumn.HeaderText = "Age";
+            this.ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
+            // 
+            // insuranceDataGridViewTextBoxColumn
+            // 
+            this.insuranceDataGridViewTextBoxColumn.DataPropertyName = "Insurance";
+            this.insuranceDataGridViewTextBoxColumn.HeaderText = "Insurance";
+            this.insuranceDataGridViewTextBoxColumn.Name = "insuranceDataGridViewTextBoxColumn";
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            // 
+            // tblCustomerBindingSource
+            // 
+            this.tblCustomerBindingSource.DataMember = "tblCustomer";
+            this.tblCustomerBindingSource.DataSource = this.warehouseDatabaseDataSet;
+            // 
+            // warehouseDatabaseDataSet
+            // 
+            this.warehouseDatabaseDataSet.DataSetName = "WarehouseDatabaseDataSet";
+            this.warehouseDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // tblPrescriptionsBindingSource
             // 
             this.tblPrescriptionsBindingSource.DataMember = "tblPrescriptions";
@@ -634,6 +634,7 @@
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.tblCustomerTableAdapter = null;
             this.tableAdapterManager.tblInventoryTableAdapter = this.tblInventoryTableAdapter;
+            this.tableAdapterManager.tblLocationTableAdapter = null;
             this.tableAdapterManager.tblMedicineBatchTableAdapter = null;
             this.tableAdapterManager.tblMedicineTableAdapter = null;
             this.tableAdapterManager.tblPrescriptionsTableAdapter = null;
@@ -673,8 +674,6 @@
             this.tabPage6.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblCustomerBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warehouseDatabaseDataSet)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.tabPage3.ResumeLayout(false);
@@ -685,6 +684,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgInventory)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tblCustomerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.warehouseDatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblPrescriptionsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblInventoryBindingSource)).EndInit();
             this.ResumeLayout(false);

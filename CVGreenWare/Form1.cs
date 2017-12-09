@@ -285,7 +285,9 @@ namespace CVGreenWare
             if (e.ColumnIndex == 3)
             // Open edit Prescription Form
             {
-                PrescriptionForm prescrip = new PrescriptionForm();
+                // Opens the form with a selected Prescription
+                int i = Int32.Parse(DGPrescription.Rows[e.RowIndex].Cells[0].Value.ToString());
+                PrescriptionForm prescrip = new PrescriptionForm(i);
                 prescrip.Show();
             }
             else

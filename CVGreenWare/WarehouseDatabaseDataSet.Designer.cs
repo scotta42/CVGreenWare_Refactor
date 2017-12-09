@@ -2081,6 +2081,8 @@ namespace CVGreenWare {
             
             private global::System.Data.DataColumn columnMedicineAmount;
             
+            private global::System.Data.DataColumn columnStatus;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public tblPrescriptionsDataTable() {
@@ -2156,6 +2158,14 @@ namespace CVGreenWare {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn StatusColumn {
+                get {
+                    return this.columnStatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2191,14 +2201,15 @@ namespace CVGreenWare {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public tblPrescriptionsRow AddtblPrescriptionsRow(tblCustomerRow parenttblCustomerRowBytblCustomertblPrescriptions, tblMedicineBatchRow parenttblMedicineBatchRowBytblMedicineBatchtblPrescriptions, string EditText, int MedicineAmount) {
+            public tblPrescriptionsRow AddtblPrescriptionsRow(tblCustomerRow parenttblCustomerRowBytblCustomertblPrescriptions, tblMedicineBatchRow parenttblMedicineBatchRowBytblMedicineBatchtblPrescriptions, string EditText, int MedicineAmount, string Status) {
                 tblPrescriptionsRow rowtblPrescriptionsRow = ((tblPrescriptionsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         null,
                         EditText,
-                        MedicineAmount};
+                        MedicineAmount,
+                        Status};
                 if ((parenttblCustomerRowBytblCustomertblPrescriptions != null)) {
                     columnValuesArray[1] = parenttblCustomerRowBytblCustomertblPrescriptions[0];
                 }
@@ -2239,6 +2250,7 @@ namespace CVGreenWare {
                 this.columnMedicineBatchID = base.Columns["MedicineBatchID"];
                 this.columnEditText = base.Columns["EditText"];
                 this.columnMedicineAmount = base.Columns["MedicineAmount"];
+                this.columnStatus = base.Columns["Status"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2254,6 +2266,8 @@ namespace CVGreenWare {
                 base.Columns.Add(this.columnEditText);
                 this.columnMedicineAmount = new global::System.Data.DataColumn("MedicineAmount", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMedicineAmount);
+                this.columnStatus = new global::System.Data.DataColumn("Status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStatus);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnPrescriptionID}, true));
                 this.columnPrescriptionID.AutoIncrement = true;
@@ -2262,6 +2276,7 @@ namespace CVGreenWare {
                 this.columnPrescriptionID.AllowDBNull = false;
                 this.columnPrescriptionID.Unique = true;
                 this.columnEditText.DefaultValue = ((string)("Edit"));
+                this.columnStatus.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3433,6 +3448,22 @@ namespace CVGreenWare {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Status {
+                get {
+                    try {
+                        return ((string)(this[this.tabletblPrescriptions.StatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Status\' in table \'tblPrescriptions\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletblPrescriptions.StatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public tblCustomerRow tblCustomerRow {
                 get {
                     return ((tblCustomerRow)(this.GetParentRow(this.Table.ParentRelations["tblCustomertblPrescriptions"])));
@@ -3499,6 +3530,18 @@ namespace CVGreenWare {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetMedicineAmountNull() {
                 this[this.tabletblPrescriptions.MedicineAmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsStatusNull() {
+                return this.IsNull(this.tabletblPrescriptions.StatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetStatusNull() {
+                this[this.tabletblPrescriptions.StatusColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5959,10 +6002,11 @@ namespace CVGreenWare.WarehouseDatabaseDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("CustomerID", "CustomerID");
             tableMapping.ColumnMappings.Add("MedicineBatchID", "MedicineBatchID");
             tableMapping.ColumnMappings.Add("MedicineAmount", "MedicineAmount");
+            tableMapping.ColumnMappings.Add("Status", "Status");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `tblPrescriptions` WHERE ((`PrescriptionID` = ?) AND ((? = 1 AND `CustomerID` IS NULL) OR (`CustomerID` = ?)) AND ((? = 1 AND `MedicineBatchID` IS NULL) OR (`MedicineBatchID` = ?)) AND ((? = 1 AND `MedicineAmount` IS NULL) OR (`MedicineAmount` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `tblPrescriptions` WHERE ((`PrescriptionID` = ?) AND ((? = 1 AND `CustomerID` IS NULL) OR (`CustomerID` = ?)) AND ((? = 1 AND `MedicineBatchID` IS NULL) OR (`MedicineBatchID` = ?)) AND ((? = 1 AND `MedicineAmount` IS NULL) OR (`MedicineAmount` = ?)) AND ((? = 1 AND `Status` IS NULL) OR (`Status` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_PrescriptionID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "PrescriptionID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CustomerID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerID", global::System.Data.DataRowVersion.Original, true, null));
@@ -5971,21 +6015,25 @@ namespace CVGreenWare.WarehouseDatabaseDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_MedicineBatchID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MedicineBatchID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_MedicineAmount", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MedicineAmount", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_MedicineAmount", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MedicineAmount", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Status", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Status", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Status", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Status", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO `tblPrescriptions` (`CustomerID`, `MedicineBatchID`, `MedicineAmount`" +
-                ") VALUES (?, ?, ?)";
+                ", `Status`) VALUES (?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CustomerID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerID", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("MedicineBatchID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MedicineBatchID", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("MedicineAmount", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MedicineAmount", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Status", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Status", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `tblPrescriptions` SET `CustomerID` = ?, `MedicineBatchID` = ?, `MedicineAmount` = ? WHERE ((`PrescriptionID` = ?) AND ((? = 1 AND `CustomerID` IS NULL) OR (`CustomerID` = ?)) AND ((? = 1 AND `MedicineBatchID` IS NULL) OR (`MedicineBatchID` = ?)) AND ((? = 1 AND `MedicineAmount` IS NULL) OR (`MedicineAmount` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `tblPrescriptions` SET `CustomerID` = ?, `MedicineBatchID` = ?, `MedicineAmount` = ?, `Status` = ? WHERE ((`PrescriptionID` = ?) AND ((? = 1 AND `CustomerID` IS NULL) OR (`CustomerID` = ?)) AND ((? = 1 AND `MedicineBatchID` IS NULL) OR (`MedicineBatchID` = ?)) AND ((? = 1 AND `MedicineAmount` IS NULL) OR (`MedicineAmount` = ?)) AND ((? = 1 AND `Status` IS NULL) OR (`Status` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CustomerID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerID", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("MedicineBatchID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MedicineBatchID", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("MedicineAmount", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MedicineAmount", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Status", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Status", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_PrescriptionID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "PrescriptionID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CustomerID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerID", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CustomerID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerID", global::System.Data.DataRowVersion.Original, false, null));
@@ -5993,6 +6041,8 @@ namespace CVGreenWare.WarehouseDatabaseDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_MedicineBatchID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MedicineBatchID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_MedicineAmount", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MedicineAmount", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_MedicineAmount", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MedicineAmount", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Status", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Status", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Status", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Status", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6008,12 +6058,12 @@ namespace CVGreenWare.WarehouseDatabaseDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[2];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT PrescriptionID, CustomerID, MedicineBatchID, MedicineAmount FROM tblPrescr" +
-                "iptions";
+            this._commandCollection[0].CommandText = "SELECT PrescriptionID, CustomerID, MedicineBatchID, MedicineAmount, Status FROM t" +
+                "blPrescriptions";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        tblPrescriptions.PrescriptionID, tblCustomer.FirstName, tblCustomer.LastName, tblMedicine.MedicineName, tblMedicineBatch.ExpirationDate
+            this._commandCollection[1].CommandText = @"SELECT        tblPrescriptions.PrescriptionID, tblCustomer.FirstName, tblCustomer.LastName, tblMedicine.MedicineName, tblMedicineBatch.ExpirationDate, tblPrescriptions.Status
 FROM            (((tblPrescriptions INNER JOIN
                          tblCustomer ON tblPrescriptions.CustomerID = tblCustomer.CustomerID) INNER JOIN
                          tblMedicineBatch ON tblPrescriptions.MedicineBatchID = tblMedicineBatch.MedicineBatchID) INNER JOIN
@@ -6102,7 +6152,7 @@ FROM            (((tblPrescriptions INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_PrescriptionID, global::System.Nullable<int> Original_CustomerID, global::System.Nullable<int> Original_MedicineBatchID, global::System.Nullable<int> Original_MedicineAmount) {
+        public virtual int Delete(int Original_PrescriptionID, global::System.Nullable<int> Original_CustomerID, global::System.Nullable<int> Original_MedicineBatchID, global::System.Nullable<int> Original_MedicineAmount, string Original_Status) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_PrescriptionID));
             if ((Original_CustomerID.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -6128,6 +6178,14 @@ FROM            (((tblPrescriptions INNER JOIN
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
+            if ((Original_Status == null)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Status));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6148,7 +6206,7 @@ FROM            (((tblPrescriptions INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> CustomerID, global::System.Nullable<int> MedicineBatchID, global::System.Nullable<int> MedicineAmount) {
+        public virtual int Insert(global::System.Nullable<int> CustomerID, global::System.Nullable<int> MedicineBatchID, global::System.Nullable<int> MedicineAmount, string Status) {
             if ((CustomerID.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((int)(CustomerID.Value));
             }
@@ -6166,6 +6224,12 @@ FROM            (((tblPrescriptions INNER JOIN
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Status == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Status));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6187,7 +6251,7 @@ FROM            (((tblPrescriptions INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> CustomerID, global::System.Nullable<int> MedicineBatchID, global::System.Nullable<int> MedicineAmount, int Original_PrescriptionID, global::System.Nullable<int> Original_CustomerID, global::System.Nullable<int> Original_MedicineBatchID, global::System.Nullable<int> Original_MedicineAmount) {
+        public virtual int Update(global::System.Nullable<int> CustomerID, global::System.Nullable<int> MedicineBatchID, global::System.Nullable<int> MedicineAmount, string Status, int Original_PrescriptionID, global::System.Nullable<int> Original_CustomerID, global::System.Nullable<int> Original_MedicineBatchID, global::System.Nullable<int> Original_MedicineAmount, string Original_Status) {
             if ((CustomerID.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(CustomerID.Value));
             }
@@ -6206,30 +6270,44 @@ FROM            (((tblPrescriptions INNER JOIN
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_PrescriptionID));
-            if ((Original_CustomerID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_CustomerID.Value));
+            if ((Status == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Status));
+            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_PrescriptionID));
+            if ((Original_CustomerID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_CustomerID.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             if ((Original_MedicineBatchID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_MedicineBatchID.Value));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_MedicineBatchID.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             if ((Original_MedicineAmount.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_MedicineAmount.Value));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_MedicineAmount.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Status == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Status));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 

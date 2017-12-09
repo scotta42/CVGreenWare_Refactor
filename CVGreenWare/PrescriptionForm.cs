@@ -17,7 +17,7 @@ namespace CVGreenWare
         int medID;
         int medBatchID;
         int medAmount;
-        int prescriptionID = 1;
+        int prescriptionID;
 
         List<int> CustomerIDs = new List<int>();
         List<int> MedIDs = new List<int>();
@@ -26,6 +26,13 @@ namespace CVGreenWare
         public PrescriptionForm()
         {
             InitializeComponent();
+            LoadDBInfo();
+        }
+
+        public PrescriptionForm(int i)
+        {
+            InitializeComponent();
+            prescriptionID = i;
             LoadDBInfo();
         }
 
@@ -101,7 +108,7 @@ namespace CVGreenWare
             // TODO: Refactor into a single function: Shared in HARDCODE region
             string fileName = @"|DataDirectory|\WarehouseDatabase.accdb";
             OleDbConnection con = new OleDbConnection(string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0; Data Source = {0}; Persist Security Info = True;", fileName));
-            OleDbCommand cmd = new OleDbCommand("UPDATE tblPrescriptions SET CustomerID = " + custID.ToString() + ", MedicineBatchID = " + medID.ToString() + ", MedicineAmount = " + medAmount.ToString() + " WHERE PrescriptionID = " + prescriptionID.ToString(), con);
+            OleDbCommand cmd = new OleDbCommand("UPDATE tblPrescriptions SET CustomerID = " + custID + ", MedicineBatchID = " + medID + ", MedicineAmount = " + medAmount + ", Status = 'Ready' WHERE PrescriptionID = " + prescriptionID, con);
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
@@ -109,22 +116,22 @@ namespace CVGreenWare
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            custID = 1;
+            custID = Int32.Parse(comboBox2.SelectedItem.ToString());
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            medID = 1;
+            medID = Int32.Parse(comboBox1.SelectedItem.ToString());
         }
 
         private void QTY_ValueChanged(object sender, EventArgs e)
         {
-            medAmount = 1;
+            medAmount = Convert.ToInt32(QTY.Value);
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            medBatchID = 1;
+            medBatchID = Int32.Parse(comboBox3.SelectedItem.ToString());
         }
     }
 }
