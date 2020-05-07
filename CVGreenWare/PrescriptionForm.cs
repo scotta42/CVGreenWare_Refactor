@@ -18,6 +18,8 @@ namespace CVGreenWare
         int medBatchID;
         int medAmount;
         int prescriptionID;
+        DataBase db = new DataBase();
+
 
         List<int> CustomerIDs = new List<int>();
         List<int> MedIDs = new List<int>();
@@ -40,7 +42,7 @@ namespace CVGreenWare
         {
             try
             {
-                SavePrescription();
+                db.SavePrescription((@"|DataDirectory|\WarehouseDatabase.accdb"),custID,medID,medAmount,prescriptionID);
             }
             catch (Exception)
             {
@@ -65,30 +67,29 @@ namespace CVGreenWare
 
         private void LoadDBInfo()
         {
-            // TODO: Refactor into a single function: Shared in HARDCODE region
+
             string fileName = @"|DataDirectory|\WarehouseDatabase.accdb";
-            OleDbConnection con = new OleDbConnection(string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0; Data Source = {0}; Persist Security Info = True;", fileName));
-            OleDbCommand cmd = new OleDbCommand("SELECT MedicineBatchID FROM tblMedicineBatch", con);
-            OleDbDataReader reader;
-            con.Open();
-            reader = cmd.ExecuteReader();
+            db.DbSelect(fileName, ("SELECT MedicineBatchID FROM tblMedicineBatch"));
+            OleDbDataReader reader = db.GetCMD().ExecuteReader();
+            OleDbCommand cmd;
+
             while (reader.Read())
             {
                 BatchIDs.Add(reader.GetInt32(0));
             }
-            cmd = new OleDbCommand("SELECT MedicineID FROM tblMedicine", con);
+            cmd = new OleDbCommand("SELECT MedicineID FROM tblMedicine", db.GetCon());
             reader = cmd.ExecuteReader();
             while (reader.Read())
             {
                 MedIDs.Add(reader.GetInt32(0));
             }
-            cmd = new OleDbCommand("SELECT CustomerID FROM tblCustomer", con);
+            cmd = new OleDbCommand("SELECT CustomerID FROM tblCustomer", db.GetCon());
             reader = cmd.ExecuteReader();
             while (reader.Read())
             {
                 CustomerIDs.Add(reader.GetInt32(0));
             }
-            con.Close();
+            db.GetCon().Close();
             foreach (int i in MedIDs)
             {
                 comboBox1.Items.Add(i);
@@ -103,16 +104,6 @@ namespace CVGreenWare
             }
         }
 
-        private void SavePrescription()
-        {
-            // TODO: Refactor into a single function: Shared in HARDCODE region
-            string fileName = @"|DataDirectory|\WarehouseDatabase.accdb";
-            OleDbConnection con = new OleDbConnection(string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0; Data Source = {0}; Persist Security Info = True;", fileName));
-            OleDbCommand cmd = new OleDbCommand("UPDATE tblPrescriptions SET CustomerID = " + custID + ", MedicineBatchID = " + medID + ", MedicineAmount = " + medAmount + ", Status = 'Ready' WHERE PrescriptionID = " + prescriptionID, con);
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
-        }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {

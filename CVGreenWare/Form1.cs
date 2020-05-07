@@ -16,6 +16,8 @@ namespace CVGreenWare
 {
     public partial class Form1 : Form
     {
+        DataBase db = new DataBase();
+
         #region FormLoad/Close
         public Form1()
         {
@@ -229,8 +231,8 @@ namespace CVGreenWare
         private void CheckForNewExcelPrescription()
         {
 
-            DataBase db = new DataBase();
-            db.DbSelect(@"|DataDirectory|\Excel Docs\Prescription.xlsx");
+      //      DataBase db = new DataBase();
+            db.DbSelect((@"|DataDirectory|\Excel Docs\Prescription.xlsx"), ("Select * from [Sheet1$]"));
 
             OleDbDataReader reader = db.GetCMD().ExecuteReader();
             // Create Data Table to store data from Excel file
@@ -390,7 +392,8 @@ namespace CVGreenWare
 
         private void CheckForNewExcelUsers()
         {
-            DataBase db = new DataBase();
+         //   DataBase db = new DataBase();
+            db.DbSelect((@"|DataDirectory|\Excel Docs\Patient.xlsx"),("Select * from [Sheet1$]"));
             OleDbDataReader reader = db.GetCMD().ExecuteReader();
 
             // Create Data Table to store data from Excel file
