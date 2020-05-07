@@ -228,14 +228,11 @@ namespace CVGreenWare
 
         private void CheckForNewExcelPrescription()
         {
-            // TODO: Refactor into a single function: Shared in HARDCODE region
-            string fileName = @"|DataDirectory|\Excel Docs\Prescription.xlsx";
-            OleDbConnection con = new OleDbConnection(string.Format(@"Provider= Microsoft.ACE.OLEDB.12.0;Data Source={0}; Extended Properties = 'Excel 12.0 Xml;HDR=NO';", fileName));
-            OleDbCommand cmd = new OleDbCommand("Select * from [Sheet1$]", con);
-            OleDbDataReader reader;
-            con.Open();
-            reader = cmd.ExecuteReader();
 
+            DataBase db = new DataBase();
+            db.DbSelect(@"|DataDirectory|\Excel Docs\Prescription.xlsx");
+
+            OleDbDataReader reader = db.GetCMD().ExecuteReader();
             // Create Data Table to store data from Excel file
             // TODO: This should happen after new us HAS been found
             // TODO: This data should be created based off a report, and linking to the Customer Table in the DB
@@ -253,7 +250,7 @@ namespace CVGreenWare
                 Model.Perscription prescip = new Model.Perscription(Int32.Parse(reader.GetString(0)), Int32.Parse(reader.GetString(1)));
                 prescriptions.Rows.Add(prescip.CustomerID, prescip.MedicineID);
             }
-            con.Close();
+            db.DbClose();
 
             if (prescriptions.Rows.Count > 0)
             {
@@ -394,10 +391,7 @@ namespace CVGreenWare
         private void CheckForNewExcelUsers()
         {
             DataBase db = new DataBase();
-            OleDbConnection con = GetCon(@"|DataDirectory|\Excel Docs\Patient.xlsx");
-            OleDbCommand cmd = new OleDbCommand("Select * from [Sheet1$]", con);
-
-            OleDbDataReader reader = db.DbSelect(@"|DataDirectory|\Excel Docs\Patient.xlsx").ExecuteReader();
+            OleDbDataReader reader = db.GetCMD().ExecuteReader();
 
             // Create Data Table to store data from Excel file
             // TODO: This should happen after new user HAS been found
@@ -417,7 +411,7 @@ namespace CVGreenWare
                 Model.Customer cust = new Model.Customer(reader.GetString(1), Int32.Parse(reader.GetString(2)), reader.GetString(3), DateTime.Parse(reader.GetString(4)), reader.GetString(5));
                 customers.Rows.Add(cust.FirstName, cust.LastName, cust.Age, cust.Insurance, cust.LastVisit, cust.Email);
             }
-            con.Close();
+            db.DbClose();
 
             if (customers.Rows.Count > 0)
             {
@@ -433,12 +427,6 @@ namespace CVGreenWare
                 // TODO: if there is an error, success message still displays
                 MessageBox.Show(customers.Rows.Count.ToString() + "customers were added to the database.");
             }
-        }
-        public OleDbConnection GetCon (string fileName)
-        {
-            OleDbConnection con = new OleDbConnection(string.Format(@"Provider= Microsoft.ACE.OLEDB.12.0;Data Source={0}; Extended Properties = 'Excel 12.0 Xml;HDR=NO';", fileName));
-            OleDbCommand cmd = new OleDbCommand("Select * from [Sheet1$]", con);
-            return con;
         }
 
         private void InsertIntoDatabase(DataTable customers)
