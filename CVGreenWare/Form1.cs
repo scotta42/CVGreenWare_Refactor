@@ -232,9 +232,9 @@ namespace CVGreenWare
             string fileName = @"|DataDirectory|\Excel Docs\Prescription.xlsx";
             OleDbConnection con = new OleDbConnection(string.Format(@"Provider= Microsoft.ACE.OLEDB.12.0;Data Source={0}; Extended Properties = 'Excel 12.0 Xml;HDR=NO';", fileName));
             OleDbCommand cmd = new OleDbCommand("Select * from [Sheet1$]", con);
-            OleDbDataReader myReader;
+            OleDbDataReader reader;
             con.Open();
-            myReader = cmd.ExecuteReader();
+            reader = cmd.ExecuteReader();
 
             // Create Data Table to store data from Excel file
             // TODO: This should happen after new us HAS been found
@@ -242,7 +242,7 @@ namespace CVGreenWare
             DataTable prescriptions = new DataTable();
             prescriptions.Columns.Add("CustomerID"); prescriptions.Columns.Add("MedicineBatchID");
 
-            while (myReader.Read())
+            while (reader.Read())
             {
                 // EXCEL FILE LAYOUT
                 // 0            1
@@ -250,7 +250,7 @@ namespace CVGreenWare
 
                 // Add customer from Excel file to Data Table
 
-                Model.Perscription prescip = new Model.Perscription(Int32.Parse(myReader.GetString(0)), Int32.Parse(myReader.GetString(1)));
+                Model.Perscription prescip = new Model.Perscription(Int32.Parse(reader.GetString(0)), Int32.Parse(reader.GetString(1)));
                 prescriptions.Rows.Add(prescip.CustomerID, prescip.MedicineID);
             }
             con.Close();
@@ -393,20 +393,18 @@ namespace CVGreenWare
 
         private void CheckForNewExcelUsers()
         {
-            // TODO: Refactor into a single function: Shared in PRESCRIPION region
-            string fileName = @"|DataDirectory|\Excel Docs\Patient.xlsx";
-            OleDbConnection con = new OleDbConnection(string.Format(@"Provider= Microsoft.ACE.OLEDB.12.0;Data Source={0}; Extended Properties = 'Excel 12.0 Xml;HDR=NO';", fileName));
+            DataBase db = new DataBase();
+            OleDbConnection con = GetCon(@"|DataDirectory|\Excel Docs\Patient.xlsx");
             OleDbCommand cmd = new OleDbCommand("Select * from [Sheet1$]", con);
-            OleDbDataReader myReader;
-            con.Open();
-            myReader = cmd.ExecuteReader();
+
+            OleDbDataReader reader = db.DbSelect(@"|DataDirectory|\Excel Docs\Patient.xlsx").ExecuteReader();
 
             // Create Data Table to store data from Excel file
             // TODO: This should happen after new user HAS been found
             DataTable customers = new DataTable();
             customers.Columns.Add("FirstName"); customers.Columns.Add("LastName"); customers.Columns.Add("Age"); customers.Columns.Add("Insurance"); customers.Columns.Add("LastVisit"); customers.Columns.Add("Email");
 
-            while (myReader.Read())
+            while (reader.Read())
             {
                 // EXCEL FILE LAYOUT
                 // 0    1       2       3           4           5
@@ -416,7 +414,7 @@ namespace CVGreenWare
                 // TODO: delete id field and assosiated code
 
                 // Add customer from Excel file to Data Table
-                Model.Customer cust = new Model.Customer(myReader.GetString(1), Int32.Parse(myReader.GetString(2)), myReader.GetString(3), DateTime.Parse(myReader.GetString(4)), myReader.GetString(5));
+                Model.Customer cust = new Model.Customer(reader.GetString(1), Int32.Parse(reader.GetString(2)), reader.GetString(3), DateTime.Parse(reader.GetString(4)), reader.GetString(5));
                 customers.Rows.Add(cust.FirstName, cust.LastName, cust.Age, cust.Insurance, cust.LastVisit, cust.Email);
             }
             con.Close();
@@ -435,6 +433,12 @@ namespace CVGreenWare
                 // TODO: if there is an error, success message still displays
                 MessageBox.Show(customers.Rows.Count.ToString() + "customers were added to the database.");
             }
+        }
+        public OleDbConnection GetCon (string fileName)
+        {
+            OleDbConnection con = new OleDbConnection(string.Format(@"Provider= Microsoft.ACE.OLEDB.12.0;Data Source={0}; Extended Properties = 'Excel 12.0 Xml;HDR=NO';", fileName));
+            OleDbCommand cmd = new OleDbCommand("Select * from [Sheet1$]", con);
+            return con;
         }
 
         private void InsertIntoDatabase(DataTable customers)
